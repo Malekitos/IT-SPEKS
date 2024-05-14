@@ -19,18 +19,27 @@ const showingNavigationDropdown = ref(false);
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
+                            <!-- <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
                                     <ApplicationLogo
                                         class="block h-9 w-auto fill-current text-gray-800"
                                     />
                                 </Link>
-                            </div>
+                            </div> -->
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Sakums
+                                </NavLink>
+                                <NavLink :href="route('vakances')" :active="route().current('vakances')">
+                                    Vakances
+                                </NavLink>
+                                <NavLink :href="route('jaunumi')" :active="route().current('jaunumi')">
+                                    Jaunumi
+                                </NavLink>
+                                <NavLink :href="route('parmums')" :active="route().current('parmums')">
+                                    Par Mums
                                 </NavLink>
                             </div>
                         </div>

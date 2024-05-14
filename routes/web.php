@@ -18,6 +18,20 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/vakances', function () {
+    return Inertia::render('Vakances');
+})->middleware(['auth', 'verified'])->name('vakances');
+
+Route::get('/jaunumi', function () {
+    return Inertia::render('Jaunumi');
+})->middleware(['auth', 'verified'])->name('jaunumi');
+
+Route::get('/parmums', function () {
+    return Inertia::render('Parmums');
+})->middleware(['auth', 'verified'])->name('parmums');
+
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
