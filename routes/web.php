@@ -14,23 +14,37 @@ Route::get('/', function () {
     ]);
 });
 
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/vakances', function () {
+//     return Inertia::render('Vakances');
+// })->middleware(['auth', 'verified'])->name('vakances');
+
+// Route::get('/jaunumi', function () {
+//     return Inertia::render('Jaunumi');
+// })->middleware(['auth', 'verifed'])->name('jaunumi');
+
+// Route::get('/parmums', function () {
+//     return Inertia::render('Parmums');
+// })->middleware(['auth', 'verified'])->name('parmums');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard')->middleware('web');
 
 Route::get('/vakances', function () {
     return Inertia::render('Vakances');
-})->middleware(['auth', 'verified'])->name('vakances');
+})->name('vakances')->middleware('web');
 
 Route::get('/jaunumi', function () {
     return Inertia::render('Jaunumi');
-})->middleware(['auth', 'verified'])->name('jaunumi');
+})->name('jaunumi')->middleware('web');
 
 Route::get('/parmums', function () {
     return Inertia::render('Parmums');
-})->middleware(['auth', 'verified'])->name('parmums');
-
-
+})->name('parmums')->middleware('web');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
