@@ -46,6 +46,11 @@ Route::get('/parmums', function () {
     return Inertia::render('Parmums');
 })->name('parmums')->middleware('web');
 
+
+Route::get('/admindashboard', function () {
+    return Inertia::render('Admindashboard');
+})->middleware(['auth', 'verified'])->name('admindashboard');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

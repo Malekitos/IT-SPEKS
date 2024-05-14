@@ -1,24 +1,21 @@
 <script setup>
-import Welcome from '@/Pages/Welcome.vue';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
     <Head title="Dashboard" />
 
-    <Welcome>
+    <AuthenticatedLayout>
         
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">EGOOOT TI MOJ SLADENJKIJ!!</div>
-
-                   <!-- <div v-if!=$page.props.auth.user>!!!</div> -->
-                    
+                    <div class="p-6 text-gray-900">EGOOOT TI MOJ SLADENJKIJ ADMIIIIN!!</div>
                 </div>
             </div>
         </div>
-    </Welcome>
-
+    </AuthenticatedLayout>
+    
 </template>
