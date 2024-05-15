@@ -81,7 +81,7 @@ defineProps({
 <template>
   
     
-
+ <!-- Это навигация если че, кто не знал -->
     <div>
         <div class="min-h-screen bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
@@ -231,7 +231,7 @@ defineProps({
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="max-w-7xl mx-auto">
                 <slot />
             </main>
         </div>
