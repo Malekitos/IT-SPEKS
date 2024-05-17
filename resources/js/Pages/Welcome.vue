@@ -134,8 +134,21 @@ defineProps({
                                         Log in 
                                     </Link>
                             </nav>
+                            <nav v-if="!$page.props.auth.user" class="mx-3 flex flex-1 justify-end">
+                                    <Link
+                                        :href="route('register')"
+                                        class="rounded-md px-3 py-2 text-gray-400   transition hover:text-main focus:outline-none focus-visible:ring-[#FF2D20]"
+                                    >
+                                        Register 
+                                    </Link>
+                            </nav>
+                       
                                  <!-- ИМЯ ПОЛЬЗОВАТЕЛЯ КОГДА ОН ЗАЛОГИНИЛСЯ -->
-                            <div v-if="$page.props.auth.user" class="hidden sm:flex sm:items-center sm:ms-6 ">
+                            
+                        </header>  
+                        <div v-if="$page.props.auth.user" class="hidden sm:flex sm:items-center sm:ms-6 ">
+                            <!-- Settings Dropdown -->
+                            <div class="hidden sm:flex sm:items-center sm:ms-6">
                             <!-- Settings Dropdown -->
                             <div class="ms-3 relative">
                                 <Dropdown align="right" width="48">
@@ -172,8 +185,7 @@ defineProps({
                                 </Dropdown>
                             </div>
                         </div>
-                        </header>  
-
+                        </div>
 
                         <!-- Hamburger -->
                         <div class="-me-2 flex items-center sm:hidden">
