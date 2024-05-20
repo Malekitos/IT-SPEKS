@@ -8,9 +8,9 @@ import FooterAll from '@/Pages/FooterAll.vue';
     <Head title="Dashboard" />
 
     <Welcome>
-        
 
-        <div class="py-20 bg-main text-white">
+
+        <div class="mt-5 py-20 bg-main text-white">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden">
                     <div class="p-6 text-center text-6xl font-bold">Mēs tev palīdzēsim atrast darbu IT jomā Latvijā!</div>
