@@ -220,11 +220,15 @@ const notify = () => {
                                 <form action="#" class="space-y-8">
                                 <div>
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Vārds</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Uzvārds</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Uzvārds" required>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Uzvārds" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Talrunis</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="+37125524933" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-pasts</label>
