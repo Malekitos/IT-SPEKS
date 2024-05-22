@@ -49,6 +49,11 @@ const notify = () => {
                     <select id="FROM" class="h-12 border border-gray-300 text-gray-900 text-xs font-medium rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white">
                         <option selected>Min</option>
                         <option value="option 1">option 1</option>
+                        <option value="option 2">option 2</option>
+                        <option value="option 3">option 3</option>
+                        <option value="option 4">option 4</option>
+                    </select>
+                </div>
                 <p class="px-1 font-normal text-sm leading-6 text-gray-600">to</p>
                 <div class="relative w-full">
                     <select id="TO" class="h-12 border border-gray-300 text-gray-900 text-xs font-medium rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white">
