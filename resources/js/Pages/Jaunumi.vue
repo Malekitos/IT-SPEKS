@@ -1,6 +1,8 @@
 <script setup>
 import Welcome from '@/Pages/Welcome.vue';
 import { Head } from '@inertiajs/vue3';
+import FooterAll from '@/Pages/FooterAll.vue';
+
 </script>
 
 <template>
@@ -14,151 +16,143 @@ import { Head } from '@inertiajs/vue3';
 <div class="mx-auto grid max-w-2xl items-start gap-x-16 gap-y-8 px-6 lg:max-w-7xl lg:grid-cols-2">
  <div class="group relative" preload="preload">
  <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/whatsnewphp84.png" alt="A Look at What&#039;s Coming to PHP 8.4 image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<img src="data:image/jpeg;base64,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" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
 <div class="mt-6 flex items-center gap-3">
-<span class="inline-flex rounded-full px-4 py-2 text-xs font-bold leading-4 border border-red-600 text-red-600">
-News
+<span class="inline-flex rounded-full px-4 py-2 text-xs font-bold leading-4 border  border-main text-main">
+Aktuālais
 </span>
 
 </div>
 
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-A Look at What&#039;s Coming to PHP 8.4
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Mākslīgais intelekts: Revolūcija IT nozarē
 </h3>
 
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/php-8-4-0" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<!--[if ENDBLOCK]><![endif]-->
-<!--[if BLOCK]><![endif]--> <div class="group relative" preload="preload">
+
+
+<div class="group relative" preload="preload">
  <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/forge2.png" alt="Laravel Forge image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<img src="data:image/jpeg;base64,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" alt="Laravel Forge image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <div class="mt-6 flex items-center gap-3">
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if BLOCK]><![endif]--> <!--[if BLOCK]><![endif]--> <a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 inline-flex !rounded-full px-4 py-2 text-xs font-bold leading-4 hover:opacity-80 focus-visible:ring-offset-1 border border-red-600 text-red-600" href="/advertising" wire:navigate.hover>
-Partner
+<div class="mt-6 flex items-center gap-3">
+ <a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 inline-flex !rounded-full px-4 py-2 text-xs font-bold leading-4 hover:opacity-80 focus-visible:ring-offset-1 border  border-main text-main" href="">
+Aktuālais
 </a>
-<!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
+
 </div>
-<!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-Laravel Forge - The easiest way to deploy your Laravel applications
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    5G tīkls Latvijā: Ko sagaidīt nākotnē?
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://forge.laravel.com/?utm_campaign=laravel&amp;utm_source=laravelnews" onclick="fathom.trackGoal(&#039;W6ZXNYBA&#039;, 0);">
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="">
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<!--[if ENDBLOCK]><![endif]-->
+
 </div>
 </section>
 <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl">
 <hr class="border-gray-600/30" />
 </div>
-<section wire:snapshot="{&quot;data&quot;:{&quot;except&quot;:[[3572],{&quot;s&quot;:&quot;arr&quot;}],&quot;limit&quot;:6},&quot;memo&quot;:{&quot;id&quot;:&quot;fzmChqc4MQ61ls8FKAEm&quot;,&quot;name&quot;:&quot;latest-articles-section&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;en&quot;},&quot;checksum&quot;:&quot;419c7e37a300f3f4f579682554b03326b77f69f07e9c0b3dbba35e20732af454&quot;}" wire:effects="[]" wire:id="fzmChqc4MQ61ls8FKAEm" class="py-20">
+<section class="py-20">
 <div class="mx-auto w-full max-w-2xl px-6 lg:max-w-7xl">
 <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
-<h2 class="text-3xl font-bold sm:text-4xl lg:text-[40px]">The latest</h2>
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 font-bold text-red-600 hover:text-red-700" href="/blog" wire:navigate.hover>
-View all &rarr;
+<h2 class="text-3xl text-main font-bold sm:text-4xl lg:text-[40px]">Pēdējās ziņas</h2>
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 font-bold text-main hover:text-gray-400" href="">
+Parādīt visas &rarr;
 </a>
 </div>
 <div class="mt-12 grid gap-x-8 gap-y-12 lg:grid-cols-3">
-<!--[if BLOCK]><![endif]--> <div class="group relative" wire:key="latest-laracon-au-2024-tickets-on-sale">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/439998172_3628342590813429_2269455672136702991_n.png" alt="Laracon AU 2024 tickets are now on sale image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+    <div class="group relative">
+    <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://marvel-b1-cdn.bc0a.com/f00000000100045/www.elmhurst.edu/wp-content/uploads/2022/02/masters-information-technology-salary-illustration.jpg" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-Laracon AU 2024 tickets are now on sale
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Programmatūras izstrādes tendences 2024. gadā
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/laracon-au-2024-tickets-on-sale" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<div class="group relative" wire:key="latest-dash-ui-blade-component-library">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/dash-ui.png" alt="Dash UI is a Laravel Blade Component Library Inspired by Shopify Polaris image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<div class="group relative">
+<div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1M5vEMRI7bujDY82n7BZbXfcaKF0lPXYblA&usqp=CAU" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-Dash UI is a Laravel Blade Component Library Inspired by Shopify Polaris
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Kā uzsākt karjeru IT nozarē: Padomi un ieteikumi
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/dash-ui-blade-component-library" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<div class="group relative" wire:key="latest-php-8-4-0">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/whatsnewphp84.png" alt="A Look at What&#039;s Coming to PHP 8.4 image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<div class="group relative">
+<div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://www.zimegats.com/wp-content/uploads/2018/05/Information-Technology-Business-World.jpg" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-A Look at What&#039;s Coming to PHP 8.4
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Digitālā transformācija: Kā tā maina biznesa pasauli?
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/php-8-4-0" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<div class="group relative" wire:key="latest-php-8-4-class-instantiation-without-extra-parenthesis">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/php-8-4-class-instantiation-without-extra-parenthesis.png" alt="Is class instantiation without extra parenthesis coming to PHP 8.4? image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<div class="group relative" >
+<div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1M5vEMRI7bujDY82n7BZbXfcaKF0lPXYblA&usqp=CAU" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-Is class instantiation without extra parenthesis coming to PHP 8.4?
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+Mākoņskaitļošana: Efektivitātes un drošības nodrošinājums
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/php-8-4-class-instantiation-without-extra-parenthesis" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<div class="group relative" wire:key="latest-validation-errors-card-for-laravel-pulse">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/pulse-validation-errors-card-featured.png" alt="Validation Errors Card for Laravel Pulse image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<div class="group relative">
+<div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1M5vEMRI7bujDY82n7BZbXfcaKF0lPXYblA&usqp=CAU" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-Validation Errors Card for Laravel Pulse
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Jaunie tehnoloģiju startapi Latvijā: Veiksmes stāsti un izaicinājumi
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/validation-errors-card-for-laravel-pulse" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<div class="group relative" wire:key="latest-frankenphp-octane-out-of-beta">
-<!--[if BLOCK]><![endif]--> <div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
-<img src="https://picperf.io/https://laravelnews.s3.amazonaws.com/featured-images/frankenphp-featured.png" alt="FrankenPHP Support in Laravel Octane is Out of Beta image" class="h-full w-full rounded-lg object-cover" loading="lazy" />
+<div class="group relative">
+<div class="aspect-[2/1] w-full rounded-lg bg-gray-100 shadow-card transition group-hover:opacity-80">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1M5vEMRI7bujDY82n7BZbXfcaKF0lPXYblA&usqp=CAU" alt="Error" class="h-full w-full rounded-lg object-cover" loading="lazy" />
 </div>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<h3 class="mt-4 text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
-FrankenPHP Support in Laravel Octane is Out of Beta
+
+<h3 class="mt-4 text-xl font-bold transition group-hover:text-main sm:text-2xl">
+    Blockchain tehnoloģija: No kriptovalūtām līdz biznesa risinājumiem
 </h3>
-<!--[if BLOCK]><![endif]--> <!--[if ENDBLOCK]><![endif]-->
-<!--[if ENDBLOCK]><![endif]-->
-<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="https://laravel-news.com/frankenphp-octane-out-of-beta" onclick>
-<span class="sr-only">Read article</span>
+
+<a class="inline-flex rounded-sm transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" href="" onclick>
+<span class="sr-only">Lasīt</span>
 </a>
 </div>
-<!--[if ENDBLOCK]><![endif]-->
+
 </div>
 </div>
 </section>
     </Welcome>
 
-    
+    <FooterAll></FooterAll>
 </template>
