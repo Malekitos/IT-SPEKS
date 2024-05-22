@@ -40,26 +40,29 @@ const notify = () => {
 
 <!-- вакансии -->
 
+                        <!-- Выравнивание всех контейнеров -->
+                        <div class="flex flex-wrap gap-16 place-content-center ">
 
-                        <div class="flex flex-wrap gap-16 place-content-center "> 
-                            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                            
+
+                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="../../photos/vakances (1).jpg" alt="" />
+                        </a>
+                        <div class="p-5 flex-grow">
                             <a href="#">
-                                <img class="rounded-t-lg" src="../../photos/vakances (1).jpg" alt="" />
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PHP programmētājs</h5>
                             </a>
-                            <div class="p-5 ">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PHP programmētājs</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Latvijas FinTech uzņēmums aicina savai komandai pievienoties, programmētāju</p>
-                                
-                                <div class="flex justify-between ">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Latvijas FinTech uzņēmums aicina savai komandai pievienoties, programmētāju</p>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between">
+                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                            
                                 <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
@@ -67,28 +70,30 @@ const notify = () => {
                                         <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
                                     </svg>
                                 </a>
-                                </div>
                             </div>
-                            </div>
-                            
-                            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        </div>
+                    </div>
+
+
+
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="../../photos/vakances (2).jpg" alt="" />
+                        </a>
+                        <div class="p-5 flex-grow">
                             <a href="#">
-                                <img class="rounded-t-lg" src="../../photos/vakances (2).jpg" alt="" />
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sistēmanalītiķis - Asistents</h5>
                             </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sistēmanalītiķis - Asistents</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IT uzņēmums SIA SmartSYS aicina pievienoties mūsu komandai sistēmanalītiķi. Ikdienā nodarbojamies ar dažādu IT sistēmu izstrādi un uzturēšanu.</p>
-                                
-                                <div class="flex justify-between">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IT uzņēmums SIA SmartSYS aicina pievienoties mūsu komandai sistēmanalītiķi. Ikdienā nodarbojamies ar dažādu IT sistēmu izstrādi un uzturēšanu.</p>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between">
+                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                            
                                 <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
@@ -96,29 +101,31 @@ const notify = () => {
                                         <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
                                     </svg>
                                 </a>
-                                </div>
                             </div>
-                            </div>
+                        </div>
+                    </div>
 
 
-                            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+
+                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="../../photos/vakances (3).jpg" alt="" />
+                        </a>
+                        <div class="p-5 flex-grow">
                             <a href="#">
-                                <img class="rounded-t-lg" src="../../photos/vakances (3).jpg" alt="" />
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sistēmanalītiķis</h5>
                             </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sistēmanalītiķis</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A/S RIX Technologies, viens no vadošajiem programmizstrādes uzņēmumiem Latvijā, kas specializējas valsts nozīmes informācijas sistēmu un citu e-pārvaldes risinājumu izstrādes un integrēšanas jomā, aicina pievienoties savai komandai SISTĒMANALĪTIĶI.u</p>
-                                
-                                <div class="flex justify-between">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A/S RIX Technologies, viens no vadošajiem programmizstrādes uzņēmumiem Latvijā, kas specializējas valsts nozīmes informācijas sistēmu un citu e-pārvaldes risinājumu izstrādes un integrēšanas jomā, aicina pievienoties savai komandai SISTĒMANALĪTIĶI.</p>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between">
+                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                            
                                 <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
@@ -126,39 +133,41 @@ const notify = () => {
                                         <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
                                     </svg>
                                 </a>
-                                </div>
                             </div>
-                            </div>
+                        </div>
+                    </div>
 
-                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <a href="#">
-                                <img class="rounded-t-lg" src="../../photos/vakances (4).jpg" alt="" />
-                            </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">IT Business Analyst</h5>
-                                </a>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Vai jūs meklējat izaicinājumus jomā, kurā varētu izmantot savas analītiskās prasmes un iegūt jaunas biznesa analīzes un tehniskās zināšanas?</p>
-                                
-                                <div class="flex justify-between ">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
-                                    Lasīt vairāk
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                                    </svg>
-                                </a>
-                            
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
-                                    Pieteikties
-                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
-                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
-                                    </svg>
-                                </a>
-                                </div>
-                            </div>
-                            </div>
                           
+
+                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="../../photos/vakances (4).jpg" alt="" />
+                        </a>
+                        <div class="p-5 flex-grow">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">IT Business Analyst</h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Vai jūs meklējat izaicinājumus jomā, kurā varētu izmantot savas analītiskās prasmes un iegūt jaunas biznesa analīzes un tehniskās zināšanas?</p>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between">
+                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                    Lasīt vairāk
+                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                                    </svg>
+                                </a>
+                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                    Pieteikties
+                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                         </div>
                     <!-- конец вакансий -->
 
