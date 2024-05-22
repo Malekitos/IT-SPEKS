@@ -34,7 +34,7 @@ const notify = () => {
                                     </svg>
                                 </div>
                                 <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-main focus:border-main " placeholder="Vakanču meklēšana" required />
-                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-main hover:bg-accent  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Meklēt</button>
+                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-main hover:bg-accent  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 transition-all ">Meklēt</button>
                             </div>
                         </form>
 
@@ -45,7 +45,7 @@ const notify = () => {
 
                             
 
-                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+                            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between ">
                         <a href="#">
                             <img class="rounded-t-lg" src="../../photos/vakances (1).jpg" alt="" />
                         </a>
@@ -57,13 +57,13 @@ const notify = () => {
                         </div>
                         <div class="p-5">
                             <div class="flex justify-between">
-                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="lasitVairak.showModal()" class=" transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="Pieteikties.showModal()" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -88,13 +88,13 @@ const notify = () => {
                         </div>
                         <div class="p-5">
                             <div class="flex justify-between">
-                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="lasitVairak.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="Pieteikties.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -120,13 +120,13 @@ const notify = () => {
                         </div>
                         <div class="p-5">
                             <div class="flex justify-between">
-                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="lasitVairak.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="Pieteikties.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -151,13 +151,13 @@ const notify = () => {
                         </div>
                         <div class="p-5">
                             <div class="flex justify-between">
-                                <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="lasitVairak.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
+                                <a href="#" onclick="Pieteikties.showModal()" class="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
