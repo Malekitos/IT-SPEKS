@@ -34,33 +34,33 @@ const notify = () => {
                                     </svg>
                                 </div>
                                 <input type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-main focus:border-main " placeholder="Vakanču meklēšana" required />
-                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-main hover:bg-accent focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Meklēt</button>
+                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-main hover:bg-accent  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ">Meklēt</button>
                             </div>
                         </form>
 
 <!-- вакансии -->
 
 
-                        <div class="flex flex-wrap gap-16 place-content-center"> 
-                            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="flex flex-wrap gap-16 place-content-center "> 
+                            <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                             <a href="#">
                                 <img class="rounded-t-lg" src="../../photos/vakances (1).jpg" alt="" />
                             </a>
-                            <div class="p-5">
+                            <div class="p-5 ">
                                 <a href="#">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PHP programmētājs</h5>
                                 </a>
                                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Latvijas FinTech uzņēmums aicina savai komandai pievienoties, programmētāju</p>
                                 
-                                <div class="flex justify-between">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent ">
+                                <div class="flex justify-between ">
+                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
                             
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent">
+                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -82,14 +82,14 @@ const notify = () => {
                                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">IT uzņēmums SIA SmartSYS aicina pievienoties mūsu komandai sistēmanalītiķi. Ikdienā nodarbojamies ar dažādu IT sistēmu izstrādi un uzturēšanu.</p>
                                 
                                 <div class="flex justify-between">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent ">
+                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
                             
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent">
+                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -112,14 +112,14 @@ const notify = () => {
                                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A/S RIX Technologies, viens no vadošajiem programmizstrādes uzņēmumiem Latvijā, kas specializējas valsts nozīmes informācijas sistēmu un citu e-pārvaldes risinājumu izstrādes un integrēšanas jomā, aicina pievienoties savai komandai SISTĒMANALĪTIĶI.u</p>
                                 
                                 <div class="flex justify-between">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent ">
+                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
                             
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent">
+                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -141,14 +141,14 @@ const notify = () => {
                                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Vai jūs meklējat izaicinājumus jomā, kurā varētu izmantot savas analītiskās prasmes un iegūt jaunas biznesa analīzes un tehniskās zināšanas?</p>
                                 
                                 <div class="flex justify-between ">
-                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent ">
+                                    <a href="#" onclick="lasitVairak.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600 ">
                                     Lasīt vairāk
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                                     </svg>
                                 </a>
                             
-                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-main rounded-lg hover:bg-accent">
+                                <a href="#" onclick="Pieteikties.showModal()" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-slate-500 hover:bg-slate-600">
                                     Pieteikties
                                     <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                                         <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
@@ -203,7 +203,7 @@ const notify = () => {
                             </ol>
                             <div class="modal-action">
                             <form method="dialog">
-                                <button class="btn bg-main border-0 text-white hover:bg-accent">Aizvērt</button>
+                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600t">Aizvērt</button>
                             </form>
                             </div>
                         </div>
@@ -217,7 +217,7 @@ const notify = () => {
                             <section class="bg-white dark:bg-gray-900">
                             <div class="max-w-2xl">
                                 <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Pieteikties šai vakancei</h2>
-                                <form action="#" class="space-y-8">
+                                <form action="#" class="space-y-7">
                                 <div>
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Vārds</label>
                                     <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
@@ -254,7 +254,7 @@ const notify = () => {
                                 <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button>
                             </form>
                             <form method="dialog">
-                                <button class="btn bg-main border-0 text-white hover:bg-accent">Aizvērt</button>
+                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
                             </form>
                             </div>
                         </div>
