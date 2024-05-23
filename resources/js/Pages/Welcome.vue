@@ -9,6 +9,17 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
+import "vue3-toastify/dist/index.css";
+
+const notify = () => {
+    toast("Jūsu pieteikums ir veiksmīgi nosūtīts", {
+  "theme": "auto",
+  "type": "success",
+  "dangerouslyHTMLString": true
+});
+  return { notify };
+};
+
 const showingNavigationDropdown = ref(false);
 
 
@@ -122,7 +133,7 @@ defineProps({
                                 <NavLink :href="route('parmums')" :active="route().current('parmums')">
                                     Par Mums
                                 </NavLink>
-                                <NavLink v-if="$page.props.auth.user" :href="route('admindashboard')" :active="route().current('admindashboard')">
+                                <NavLink v-if="$page.props.auth.user" :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
                                     Admin Sadala
                                 </NavLink>
                             </div>
@@ -248,7 +259,7 @@ defineProps({
                          <ResponsiveNavLink :href="route('parmums')" :active="route().current('parmums')">
                                     Par Mums
                         </ResponsiveNavLink>
-                         <ResponsiveNavLink v-if="$page.props.auth.user" :href="route('admindashboard')" :active="route().current('admindashboard')">
+                        <ResponsiveNavLink v-if="$page.props.auth.user" :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
                                     Admin Sadala
                         </ResponsiveNavLink>
                     </div>

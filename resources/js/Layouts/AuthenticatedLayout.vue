@@ -7,6 +7,17 @@ import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
 
+import "vue3-toastify/dist/index.css";
+
+const notify = () => {
+    toast("Jūsu pieteikums ir veiksmīgi nosūtīts", {
+  "theme": "auto",
+  "type": "success",
+  "dangerouslyHTMLString": true
+});
+  return { notify };
+};
+
 const showingNavigationDropdown = ref(false);
 </script>
 
@@ -30,19 +41,13 @@ const showingNavigationDropdown = ref(false);
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Sakums
+                                    Sakums lapa
                                 </NavLink>
-                                <NavLink :href="route('vakances')" :active="route().current('vakances')">
-                                    Vakances
+                                <NavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
+                                    Vakances kontrole
                                 </NavLink>
-                                <NavLink :href="route('jaunumi')" :active="route().current('jaunumi')">
-                                    Jaunumi
-                                </NavLink>
-                                <NavLink :href="route('parmums')" :active="route().current('parmums')">
-                                    Par Mums
-                                </NavLink>
-                                <NavLink :href="route('admindashboard')" :active="route().current('admindashboard')">
-                                    Admin Sadala
+                                <NavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
+                                    Konta kontrole
                                 </NavLink>
                             </div>
                         </div>

@@ -51,6 +51,14 @@ Route::get('/admindashboard', function () {
     return Inertia::render('Admindashboard');
 })->middleware(['auth', 'verified'])->name('admindashboard');
 
+Route::get('/kontakontrole', function () {
+    return Inertia::render('Kontakontrole');
+})->middleware(['auth', 'verified'])->name('kontakontrole');
+
+Route::get('/vakanceskontrole', function () {
+    return Inertia::render('Vakanceskontrole');
+})->middleware(['auth', 'verified'])->name('vakanceskontrole');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
