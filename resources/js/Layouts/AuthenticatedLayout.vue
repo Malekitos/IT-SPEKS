@@ -11,11 +11,20 @@ import "vue3-toastify/dist/index.css";
 
 const notify = () => {
     toast("Jūsu pieteikums ir veiksmīgi nosūtīts", {
-  "theme": "auto",
+  "theme": "colored",
   "type": "success",
   "dangerouslyHTMLString": true
 });
   return { notify };
+};
+
+const notifyDelete = () => {
+    toast("Veiksmīgi izdzēsts", {
+    "theme": "colored",
+    "type": "error",
+    "dangerouslyHTMLString": true
+});
+  return { notifyDelete };
 };
 
 const showingNavigationDropdown = ref(false);
