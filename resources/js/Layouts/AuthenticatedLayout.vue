@@ -53,10 +53,10 @@ const showingNavigationDropdown = ref(false);
                                     Sakums lapa
                                 </NavLink>
                                 <NavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
-                                    Vakances kontrole
+                                    Pieteikumu pārvaldība
                                 </NavLink>
                                 <NavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
-                                    Konta kontrole
+                                    Konta pārvaldība
                                 </NavLink>
                             </div>
                         </div>
@@ -138,9 +138,16 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
+
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </ResponsiveNavLink>
+                                    Sakums lapa
+                                </ResponsiveNavLink>
+                                <ResponsiveNavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
+                                    Pieteikumu pārvaldība
+                                </ResponsiveNavLink>
+                                <ResponsiveNavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
+                                    Konta pārvaldība
+                                </ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->

@@ -4,9 +4,11 @@ import { Head } from '@inertiajs/vue3';
 import FooterAll from '@/Pages/FooterAll.vue';
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
+import { ref } from 'vue';
+import Modal from '../Components/Modal.vue';
 
 const notify = () => {
-    toast("Jūsu pieteikums ir veiksmīgi nosūtīts", {
+    toast("Jūsu darbība veiksmīgi pabeigta!", {
   "theme": "auto",
   "type": "success",
   "dangerouslyHTMLString": true
@@ -14,6 +16,14 @@ const notify = () => {
   return { notify };
 };
     
+const isModalVisibleDzest = ref(false);
+const openModalDzest = () => {
+  isModalVisibleDzest.value = true;
+};
+
+const closeModalDzest = () => {
+    isModalVisibleDzest.value = false;
+};
 
 </script>
 
@@ -38,9 +48,13 @@ const notify = () => {
         <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
   Popularākie
 </button>
-<button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-  Jaunākie
+
+
+<button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+    Pievienot jaunu vakanci
 </button>
+
+
 <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
   Visas vakances
 </button>
@@ -71,6 +85,25 @@ const notify = () => {
                             <img class="rounded-t-lg" src="../../photos/vakances (1).jpg" alt="" />
                         </a>
                         <div class="p-5 flex-grow">
+
+                            <div v-if="$page.props.auth.user" class="flex justify-between">
+                            <a href="#" onclick="Rediget.showModal()" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-orange-500 hover:bg-orange-600">
+                                     Rediģēt
+                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" @click="openModalDzest" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-orange-500 hover:bg-ogange-600">
+                                     Izdzēst
+                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
+                                    </svg>
+                                </a>
+                           </div>
+
+
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">PHP programmētājs</h5>
                             </a>
@@ -91,6 +124,7 @@ const notify = () => {
                                         <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
                                     </svg>
                                 </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -290,9 +324,122 @@ const notify = () => {
                         </div>
             </dialog>
 
+            <dialog id="Rediget" class="modal">
+                        <div class="modal-box bg-white">
+                            <h3 class="font-bold">Rediģēšana</h3>
+                            
+                            <section class="bg-white dark:bg-gray-900">
+                            <div class="max-w-2xl">
+                                <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Šīs vakances rediģēšana</h2>
+                                <form action="#" class="space-y-7">
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nosaukums</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">īss apraksts</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="īss apraksts" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Alga</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Alga" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Atrašanās vieta</label>
+                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
+                                </div>
+                                <form class="max-w-lg mx-auto">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
+                                </form>
+                                
+                                <div class="sm:col-span-2">
+                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
+                                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
+                                </div>
+                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
+
+                            </form>
+                            </div>
+                            </section>
+                            <div class="modal-action flex justify-between">
+                            <form method="dialog">
+                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Rediģēt</button>
+                            </form>
+                            <form method="dialog">
+                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
+                            </form>
+                            </div>
+                        </div>
+            </dialog>
+
+            <dialog id="Izveidot" class="modal">
+                        <div class="modal-box bg-white">
+                            <h3 class="font-bold">Izveidošana</h3>
+                            
+                            <section class="bg-white dark:bg-gray-900">
+                            <div class="max-w-2xl">
+                                <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Jaunas vakances izveide</h2>
+                                <form action="#" class="space-y-7">
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nosaukums</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">īss apraksts</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="īss apraksts" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Alga</label>
+                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Alga" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Atrašanās vieta</label>
+                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
+                                </div>
+                                <form class="max-w-lg mx-auto">
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
+                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
+                                </form>
+                                
+                                <div class="sm:col-span-2">
+                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
+                                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
+                                </div>
+                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
+
+                            </form>
+                            </div>
+                            </section>
+                            <div class="modal-action flex justify-between">
+                            <form method="dialog">
+                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
+                            </form>
+                            <form method="dialog">
+                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
+                            </form>
+                            </div>
+                        </div>
+            </dialog>
+
             <div>
   </div>
     </Welcome>
     <FooterAll></FooterAll>
+
+    <Modal :show="isModalVisibleDzest" @close="closeModalDzest" maxWidth="md" >
+      <template #default>
+        <div class="p-4 ">
+          <h2 class="text-lg font-semibold">Dzēšana!</h2>
+          <p class="text-slate-700">Vai esat pārliecināts, ka vēlaties dzēst šo vakanci?</p>
+          <div class="flex justify-between">
+            <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 transition-all text-white rounded">JĀ</button>
+          <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-all text-white rounded">NĒ</button>
+          </div>
+        </div>
+      </template>
+    </Modal>
 
 </template>
