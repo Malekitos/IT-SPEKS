@@ -21,19 +21,23 @@ import FooterAll from '@/Pages/FooterAll.vue';
             </div>
         </div>
 
-        <div class="bg-whitem">
-        <div class="container px-5  mx-auto">
-        <div class="bg-whitem grid grid-cols-2 gap-1 items-center py-20">
-        <div class="mr-6">
-            <div class="pl-5 text-justify text-6xl text-gray-900 font-bold">Atradīsim darbu!</div>
-            <p class="text-xl pl-5">IT IR SPĒKS ir viena no lielākajām un cienījamākajām kompānijām Latvijā, kas nodarbojas ar darba meklēšanu klientiem. Mēs lepojamies ar savu reputāciju, piedāvājot augstas kvalitātes nodarbinātības pakalpojumus, kas palīdz mūsu klientiem atrast piemērotas darba vietas, kas atbilst viņu kvalifikācijai un karjeras mērķiem.</p>
-        </div>
-        <div class="flex justify-center">
-            <img src="https://www.ziprecruiter.ie/intl_assets/images/uk/mobile_and_desktop_alerts.svg" class="flex justify-center max-w-full  h-auto">
+        <div class="bg-white">
+    <div class="container mx-auto px-5">
+        <div class="bg-white grid grid-cols-1 sm:grid-cols-2 gap-1 items-center py-10 sm:py-20">
+            <div class="sm:mr-6">
+                <div class="pl-5 text-3xl sm:text-6xl text-justify text-gray-900 font-bold">Atradīsim darbu!</div>
+                <p class="text-lg sm:text-xl pl-5 mt-4 sm:mt-0">
+                    IT IR SPĒKS ir viena no lielākajām un cienījamākajām kompānijām Latvijā, kas nodarbojas ar darba meklēšanu klientiem. Mēs lepojamies ar savu reputāciju, piedāvājot augstas kvalitātes nodarbinātības pakalpojumus, kas palīdz mūsu klientiem atrast piemērotas darba vietas, kas atbilst viņu kvalifikācijai un karjeras mērķiem.
+                </p>
+            </div>
+            <div class="flex justify-center mt-6 sm:mt-0">
+                <img src="https://www.ziprecruiter.ie/intl_assets/images/uk/mobile_and_desktop_alerts.svg" class="max-w-full h-auto">
+            </div>
         </div>
     </div>
 </div>
-</div>
+
+
     <section class="text-black body-font bg-whitem">
   <div class="container px-5  mx-auto">
    
