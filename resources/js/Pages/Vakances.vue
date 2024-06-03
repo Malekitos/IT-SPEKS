@@ -6,6 +6,7 @@ import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { ref } from 'vue';
 import Modal from '../Components/Modal.vue';
+import Crudoperations from './Crudoperations.vue';
 
 const notify = () => {
     toast("Jūsu darbība veiksmīgi pabeigta!", {
@@ -53,6 +54,7 @@ const closeModalDzest = () => {
 <button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
     Pievienot jaunu vakanci
 </button>
+
 
 
 <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">

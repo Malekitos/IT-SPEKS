@@ -47,6 +47,7 @@ Route::get('/parmums', function () {
 })->name('parmums')->middleware('web');
 
 
+
 Route::get('/admindashboard', function () {
     return Inertia::render('Admindashboard');
 })->middleware(['auth', 'verified'])->name('admindashboard');
