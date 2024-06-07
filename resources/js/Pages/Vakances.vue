@@ -68,7 +68,7 @@ export default {
 
   data() {
     return {
-         
+            vakances: [],
             nosaukums_ievade: "",
             iss_apraksts_ievade: "",
             alga_ievade: '',
@@ -78,42 +78,46 @@ export default {
    
     };
   },
-  mounted() {
-    // this.getVakances();
-  },
+  
   methods: {
-    getvakances() {
-      axios.get(window.location.origin + '/api/vakance').then(response => {
-        this.vakances = response.data;
-      });
-    },
-    handleFileUpload(event) {
-      this.attels_ievade = event.target.files[0];
-    },
-    createvakance() {
+        getVakances() {
+        axios.get('vakances/get').then(response => {
+            this.vakances = response.data;
+        }).catch((error) => {
+                        console.log('FAILURE!!', error);
+                    });
+        },
+        handleFileUpload(event) {
+        this.attels_ievade = event.target.files[0];
+        },
+        createvakance() {
 
-        let vacanceData = new FormData();
-        
-        vacanceData.append('nosaukums_ievade', this.nosaukums_ievade);
-        vacanceData.append('iss_apraksts_ievade', this.iss_apraksts_ievade);
-        vacanceData.append('alga_ievade', this.alga_ievade);
-        vacanceData.append('atrasanas_vieta_ievade', this.atrasanas_vieta_ievade);
-        vacanceData.append('attels_ievade', this. attels_ievade);
-        vacanceData.append('darba_apraksts_ievade', this.darba_apraksts_ievade);
+            let vacanceData = new FormData();
+            
+            vacanceData.append('nosaukums_ievade', this.nosaukums_ievade);
+            vacanceData.append('iss_apraksts_ievade', this.iss_apraksts_ievade);
+            vacanceData.append('alga_ievade', this.alga_ievade);
+            vacanceData.append('atrasanas_vieta_ievade', this.atrasanas_vieta_ievade);
+            vacanceData.append('attels_ievade', this. attels_ievade);
+            vacanceData.append('darba_apraksts_ievade', this.darba_apraksts_ievade);
 
-        axios.post('vakances/add', vacanceData, {
-                headers: {
-                'Content-Type': 'multipart/FormData'
-                }
-                }).then(() => {
-                    this.izveidots()
-                })
-                .catch((error) => {
-                    console.log('FAILURE!!', error);
-                });
-    }
+            axios.post('vakances/add', vacanceData, {
+                    headers: {
+                    'Content-Type': 'multipart/FormData'
+                    }
+                    }).then(() => {
+                        this.izveidots()
+                    })
+                    .catch((error) => {
+                        console.log('FAILURE!!', error);
+                    });
+        }
 
     },
+
+    mounted() {
+    this.getVakances();
+  },
 
     setup() {
 
@@ -179,6 +183,12 @@ export default {
 </div>
       
 <!-- вакансии -->
+
+                <!-- <div v-for="(vakance,index) in vakances":key="index">
+
+                    {{ vakance.nosaukums }}
+
+                </div> -->
 
                         <!-- Выравнивание всех контейнеров -->
                         <div class="flex flex-wrap gap-16 place-content-center ">
@@ -421,6 +431,7 @@ export default {
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
                                     <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
                                 </div>
+
                                 <button class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
                             </form>
                             </div>
