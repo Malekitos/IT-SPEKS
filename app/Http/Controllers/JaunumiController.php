@@ -7,50 +7,82 @@ use App\Models\Jaunumi;
 
 class JaunumiController extends Controller
 {
-    public function getJaunumi()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return response()->json(Jaunumi::latest()->get());
+        return Jaunumi::all();
     }
 
-    public function storeJaunumi(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function createJaunums()
     {
-            // Validacija 
-            $validated = $request->validate([
-                'nosaukums' => 'required|string|max:255',
-                'attels' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-    
-            // Saglaba bināra formāta
-            if ($request->hasFile('attels')) {
-                $image = $request->file('attels');
-                $imageData = file_get_contents($image->getRealPath()); //Binaras properties of img
-            } else {
-                return response()->json('Kļūda ar attēlu!');
-            }
-    
-            // New Jaunums
-            Jaunumi::create([
-                'nosaukums' => $validated['nosaukums'],
-                'attels' => $imageData,
-            ]);
-
-        return response()->json('Jaunums stored successfully!');
+        $jaunums = Jaunumi::create($request->all());
+        return response()->json($jaunums, 201);
     }
 
-    public function updateJaunums(Request $request, $id)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeJaunums(Request $request)
     {
-        Jaunumi::where('id', $id)->update([
-            'nosaukums' => $request->nosaukums,
-            'attels' => $request->attels,
+
+        $request->validate([
+            'nosaukums' => 'required',
+            'attels_ievade' => 'required|mimes:jpg,png,jpeg|max:5048',
         ]);
+        
+        $newImageName = time() . '-' . $request->name . '.' . $request->attels_ievade->extension();
+        $request->attels_ievade->move(public_path('images'), $newImageName);
 
-        return response()->json('Jaunums updated successfully!');
+
+        $jaunums = new Jaunumi;
+
+        $jaunums-> nosaukums = $request->nosaukums_ievade;
+        $jaunums-> attels = $newImageName;
+        
+
+        $jaunums->save();
+
+        return response()->json(['message' => 'Data saved successfully'], 200);
+
     }
 
-    public function removeJaunums($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Jaunumi $jaunums)
     {
-        Jaunumi::where('id', $id)->delete();
-        return response()->json('Jaunums removed successfully!');
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Jaunumi $jaunums)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Jaunumi $jaunums)
+    {
+        $jaunums = Jaunumi::findOrFail($id);
+        $jaunums->update($request->all());
+        return response()->json($jaunums, 200);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Jaunumi $jaunums)
+    {
+        Jaunumi::destroy($id);
+        return response()->json(null, 204);
+    }
 }
