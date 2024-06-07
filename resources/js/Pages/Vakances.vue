@@ -56,6 +56,8 @@ const handleSubmit = () => {
 import Welcome from '@/Pages/Welcome.vue';
 import { Head } from '@inertiajs/vue3';
 import FooterAll from '@/Pages/FooterAll.vue';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 export default {
     components: {
@@ -104,7 +106,7 @@ export default {
                 'Content-Type': 'multipart/FormData'
                 }
                 }).then(() => {
-                    console.log('SUCCESS!!');
+                    this.izveidots()
                 })
                 .catch((error) => {
                     console.log('FAILURE!!', error);
@@ -113,9 +115,19 @@ export default {
 
     },
 
-  setup() {
+    setup() {
 
-  }
+    const izveidots = () => {
+                toast("Vakance ir veiksmīgi izveidota!", {
+        "theme": "colored",
+        "type": "success",
+        "transition": "flip",
+        "dangerouslyHTMLString": true
+        })
+    }
+    return { izveidots };
+    
+   }
 };
 </script>
 
@@ -401,7 +413,6 @@ export default {
                                 </div>
                                 <form class="max-w-lg mx-auto">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
-                                <!-- <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"> -->
                                 <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                                 <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
                                 </form>
@@ -410,19 +421,13 @@ export default {
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
                                     <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
                                 </div>
-                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">IZveidot</button>
-
+                                <button class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
                             </form>
                             </div>
                             </section>
-                            <div class="modal-action flex justify-between">
-                            <form method="dialog">
-                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
-                            </form>
-                            <form method="dialog">
-                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
-                            </form>
-                            </div>
+                        
+                           
+                            
                         </div>
             </dialog>
 
