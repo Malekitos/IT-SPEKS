@@ -66,13 +66,14 @@ export default {
 
   data() {
     return {
-      vakances: [],
-      nosaukums_ievade: "",
-      iss_apraksts_ievade: "",
-      alga_ievade: '',
-      atrasanas_vieta_ievade: "",
-      attels_ievade: "",
-      darba_apraksts_ievade: ""
+         
+            nosaukums_ievade: "",
+            iss_apraksts_ievade: "",
+            alga_ievade: '',
+            atrasanas_vieta_ievade: "",
+            attels_ievade: "",
+            darba_apraksts_ievade: "",
+   
     };
   },
   mounted() {
@@ -80,29 +81,37 @@ export default {
   },
   methods: {
     getvakances() {
-      axios.get('/api/vakances').then(response => {
+      axios.get(window.location.origin + '/api/vakance').then(response => {
         this.vakances = response.data;
       });
     },
+    handleFileUpload(event) {
+      this.attels_ievade = event.target.files[0];
+    },
     createvakance() {
-      axios.post('/api/vakances', {
-        nosaukums_ievade: this.nosaukums_ievade,
-        iss_apraksts_ievade: this.iss_apraksts_ievade,
-        alga_ievade: this.alga_ievade,
-        atrasanas_vieta_ievade: this.atrasanas_vieta_ievade,
-        attels_ievade: this.attels_ievade,
-        darba_apraksts_ievade: this.darba_apraksts_ievade
-      }).then(response => {
-        this.vakances.push(response.data);
-        this.nosaukums_ievade = '';
-        this.iss_apraksts_ievade = '';
-        this.alga_ievade = '';
-        this.atrasanas_vieta_ievade = '';
-        this.attels_ievade = '';
-        this.darba_apraksts_ievade = '';
-      });
+
+        let vacanceData = new FormData();
+        
+        vacanceData.append('nosaukums_ievade', this.nosaukums_ievade);
+        vacanceData.append('iss_apraksts_ievade', this.iss_apraksts_ievade);
+        vacanceData.append('alga_ievade', this.alga_ievade);
+        vacanceData.append('atrasanas_vieta_ievade', this.atrasanas_vieta_ievade);
+        vacanceData.append('attels_ievade', this. attels_ievade);
+        vacanceData.append('darba_apraksts_ievade', this.darba_apraksts_ievade);
+
+        axios.post('vakances/add', vacanceData, {
+                headers: {
+                'Content-Type': 'multipart/FormData'
+                }
+                }).then(() => {
+                    console.log('SUCCESS!!');
+                })
+                .catch((error) => {
+                    console.log('FAILURE!!', error);
+                });
     }
-  },
+
+    },
 
   setup() {
 
@@ -392,7 +401,8 @@ export default {
                                 </div>
                                 <form class="max-w-lg mx-auto">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
-                                <input v-on="attels_ievade" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                <!-- <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file"> -->
+                                <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                                 <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
                                 </form>
                                 

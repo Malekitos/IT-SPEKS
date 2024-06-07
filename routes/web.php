@@ -7,6 +7,10 @@ use Inertia\Inertia;
 
 use App\Http\Controllers\VakanceController;
 Route::apiResource('vakances', VakanceController::class);
+Route::post('vakances/add', [VakanceController::class, 'store']);
+
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

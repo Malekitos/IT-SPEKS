@@ -29,7 +29,28 @@ class VakanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'attels_ievade' => 'required|mimes:jpg,png,jpeg|max:5048',
+        ]);
+        
+        $newImageName = time() . '-' . $request->name . '.' . $request->attels_ievade->extension();
+        $request->attels_ievade->move(public_path('images'), $newImageName);
+
+
+        $vakance = new vakance;
+
+        $vakance-> nosaukums = $request->nosaukums_ievade;
+        $vakance-> iss_apraksts = $request->iss_apraksts_ievade;
+        $vakance-> alga = $request->alga_ievade;
+        $vakance-> atrasanas_vieta = $request->atrasanas_vieta_ievade;
+        $vakance-> attels = $newImageName;
+        $vakance-> darba_apraksts = $request->darba_apraksts_ievade;
+
+        $vakance->save();
+
+        return response()->json(['message' => 'Data saved successfully'], 200);
+
     }
 
     /**
