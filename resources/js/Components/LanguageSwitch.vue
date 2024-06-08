@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <button @click="setLocale('en')">English</button>
-    <button @click="setLocale('lv')">Latviski</button>
+  <div class="flex space-x-4">
+    <button class=" text-black cursor-pointer"@click="setLocale('en')">EN</button>
+    <button class=" text-black cursor-pointer" @click="setLocale('lv')">LV</button>
   </div>
 </template>
 

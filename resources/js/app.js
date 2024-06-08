@@ -13,6 +13,7 @@ import App from './App.vue';
 
 // Создаем i18n instance
 const i18n = createI18n({
+    legacy: false,
     locale: 'lv',
     messages: {
         lv: lv,

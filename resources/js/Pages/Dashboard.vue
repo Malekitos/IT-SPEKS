@@ -2,13 +2,16 @@
 import Welcome from '@/Pages/Welcome.vue';
 import { Head } from '@inertiajs/vue3';
 import FooterAll from '@/Pages/FooterAll.vue';
+import LanguageSwitch from '@/Components/LanguageSwitch.vue';
+
+
 </script>
 
 <template>
     <Head title="Dashboard" />
 
     <Welcome>
-
+     
 
         <div class="py-20 bg-main text-white">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

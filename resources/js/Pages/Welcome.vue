@@ -6,7 +6,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-
+import LanguageSwitch from '@/Components/LanguageSwitch.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
 import "vue3-toastify/dist/index.css";
@@ -136,6 +136,7 @@ defineProps({
                                 <NavLink v-if="$page.props.auth.user" :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
                                     Admin Sadala
                                 </NavLink>
+                                
                             </div>
                         </div>
 
@@ -154,6 +155,7 @@ defineProps({
                                     >
                                         Log in 
                                     </Link>
+                                    
                             </nav>
                             <nav v-if="!$page.props.auth.user" class="mx-3 flex flex-1 justify-end">
                                     <Link
@@ -162,6 +164,9 @@ defineProps({
                                     >
                                         Register 
                                     </Link>
+                            </nav>
+                            <nav>
+                                <LanguageSwitch />
                             </nav>
                        
                                  <!-- ИМЯ ПОЛЬЗОВАТЕЛЯ КОГДА ОН ЗАЛОГИНИЛСЯ -->
