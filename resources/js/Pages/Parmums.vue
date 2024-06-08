@@ -16,9 +16,9 @@ import FooterAll from '@/Pages/FooterAll.vue';
                 
             </div>
             <div class="max-[600px]:mt-36 absolute mt-80 bg-white mx-5 pb-28 rounded-sm text-center max-[600px]:pb-7 max-[600px]:border-solid max-[600px]:border-main max-[600px]:border-2">
-                <h1 class="pt-7 font-bold text-gray-800 text-4xl max-[600px]:text-3xl">IT-SPEKS programmatūras izstrādes uzņēmums</h1>
-                <h1 class="font-bold text-gray-800 text-4xl max-[600px]:text-3xl">jūsu vajadzībām ar ilgtermiņa atbalstu.</h1>
-                <p class="m-10 text-slate-500 text-2xl">"Tehnoloģiju pasaulē nepārtraukta mācīšanās nav tikai stratēģija, tā ir izdzīvošana."</p>
+                <h1 class="pt-7 font-bold text-gray-800 text-4xl max-[600px]:text-3xl">{{ $t('mainSubtitle') }}</h1>
+                <h1 class="font-bold text-gray-800 text-4xl max-[600px]:text-3xl">{{ $t('supportText') }}</h1>
+                <p class="m-10 text-slate-500 text-2xl">{{ $t('quote') }}</p>
 
                 <div class="flex justify-around m-5 text-slate-600">
                     <div class="text-center">

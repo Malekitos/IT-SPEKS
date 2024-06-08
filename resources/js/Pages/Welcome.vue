@@ -122,16 +122,16 @@ defineProps({
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Sakums
+                                    {{ $t('start') }}
                                 </NavLink>
                                 <NavLink :href="route('vakances')" :active="route().current('vakances')">
-                                    Vakances
+                                    {{ $t('vacs') }}
                                 </NavLink>
                                 <NavLink :href="route('jaunumi')" :active="route().current('jaunumi')">
-                                    Jaunumi
+                                    {{ $t('news') }}
                                 </NavLink>
                                 <NavLink :href="route('parmums')" :active="route().current('parmums')">
-                                    Par Mums
+                                    {{ $t('aboutUs') }}
                                 </NavLink>
                                 <NavLink v-if="$page.props.auth.user" :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
                                     Admin Sadala
