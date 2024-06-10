@@ -82,9 +82,9 @@ class VakanceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(vakance $vakance)
+    public function remove(vakance $vakance)
     {
-        vakance::destroy($id);
-        return response()->json(null, 204);
+        $vakance->delete();
+        return response()->json('Vakance deleted successfully!');
     }
 }

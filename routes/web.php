@@ -9,6 +9,7 @@ use App\Http\Controllers\VakanceController;
 Route::apiResource('vakances', VakanceController::class);
 Route::post('vakances/add', [VakanceController::class, 'store']);
 Route::get('vakances/show', [VakanceController::class, 'show']);
+Route::delete('vakances/remove/{vakance}', [VakanceController::class, 'remove']);
 
 
 
