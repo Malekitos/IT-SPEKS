@@ -158,44 +158,82 @@ export default {
 
             <div class="mx-auto" >
                 <div class="mx-auto p-10 ml-5 mr-5 text-gray-900">
-                    <div class="p-10 ml-5 mr-5 text-gray-900">
-
-                        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between max-lg:gap-4 w-full">
-     <!-- Search Section -->
-     <div class="relative w-full max-w-sm">
-            <input type="text" id="search" class="h-12 border border-gray-300 text-gray-900 pl-4 text-base font-normal leading-7 rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white transition-all duration-500 hover:border-gray-400 hover:bg-gray-50 focus-within:bg-gray-50" placeholder="Vakanču meklēšana">
-            <button class="absolute top-0 right-0 h-12 px-4 bg-main text-white rounded-r-full focus:outline-none hover:bg-green-600">Meklēt</button>
+                    <div class="bg-white p-4 rounded-lg shadow-md max-w-4xl mx-auto">
+        <div class="flex items-center space-x-4">
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Vieta vai attālināti</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>Vieta vai attālināti</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Meklēt pēc kategorijas</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>Meklēt pēc kategorijas</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Ierakstiet atslēgvārdu</label>
+                <input type="text" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="Ierakstiet atslēgvārdu">
+            </div>
         </div>
-  
-
-        <!-- Your Workspace Section -->
-        <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-  Popularākie
-</button>
-
-
-<button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-    Pievienot jaunu vakanci
-</button>
-
-
-<button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-  Visas vakances
-</button>
-        <div class="relative w-full max-w-sm mb-4 lg:mb-0">
-            <svg class="absolute top-1/2 -translate-y-1/2 left-4 z-50" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.5555 3.33203H3.44463C2.46273 3.33203 1.66675 4.12802 1.66675 5.10991C1.66675 5.56785 1.84345 6.00813 2.16004 6.33901L6.83697 11.2271C6.97021 11.3664 7.03684 11.436 7.0974 11.5068C7.57207 12.062 7.85127 12.7576 7.89207 13.4869C7.89728 13.5799 7.89728 13.6763 7.89728 13.869V16.251C7.89728 17.6854 9.30176 18.6988 10.663 18.2466C11.5227 17.961 12.1029 17.157 12.1029 16.251V14.2772C12.1029 13.6825 12.1029 13.3852 12.1523 13.1015C12.2323 12.6415 12.4081 12.2035 12.6683 11.8158C12.8287 11.5767 13.0342 11.3619 13.4454 10.9322L17.8401 6.33901C18.1567 6.00813 18.3334 5.56785 18.3334 5.10991C18.3334 4.12802 17.5374 3.33203 16.5555 3.33203Z" stroke="black" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-            <select id="Offer" class="h-12 border border-gray-300 text-gray-900 pl-11 text-base font-normal leading-7 rounded-full block w-full py-2.5 px-4 appearance-none relative focus:outline-none bg-white transition-all duration-500 hover:border-gray-400 hover:bg-gray-50 focus-within:bg-gray-50">
-                <option selected>Kārtot pēc...</option>
-                <option value="option 1">...</option>
-                <option value="option 2">...</option>
-                <option value="option 3">...</option>
-                <option value="option 4">...</option>
-            </select>
+        <div class="flex items-center space-x-4 mt-4">
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Termiņš</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>lekļaut visu</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Nodarbinātības veids</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>lekļaut visu</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Darba laiks</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>lekļaut visu</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Valoda</label>
+                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option>lekļaut visu</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <label class="block text-sm font-medium text-gray-700">Alga no</label>
+                <input type="number" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="1000">
+            </div>
+        </div>
+        <div class="flex items-center space-x-4 mt-4">
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox text-indigo-600">
+                <span class="ml-2">Darbs maiņās</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox text-indigo-600">
+                <span class="ml-2">Piedāvājumi studentiem</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox text-indigo-600">
+                <span class="ml-2">Piemērots pusaudžiem</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox text-indigo-600">
+                <span class="ml-2">Personām ar īpašām vajadzībām</span>
+            </label>
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox text-indigo-600">
+                <span class="ml-2">Tikai ar algām</span>
+            </label>
+        </div>
+        <div class="flex justify-between mt-4">
+            <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Meklēšana</button>
+       
         </div>
     </div>
-</div>
       
 <!-- вакансии -->
 
