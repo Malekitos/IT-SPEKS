@@ -10,7 +10,7 @@ class VakanceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function show()
     {
         return Vakance::all();
     }
@@ -56,10 +56,10 @@ class VakanceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(vakance $vakance)
-    {
-        //
-    }
+    // public function show(vakance $vakance)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
