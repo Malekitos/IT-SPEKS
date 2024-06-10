@@ -64,15 +64,11 @@ class VakanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(vakance $vakance)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, vakance $vakance)
+    public function redigesana(Request $request, vakance $vakance)
     {
         $vakance = vakance::findOrFail($id);
         $vakance->update($request->all());

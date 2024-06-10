@@ -60,6 +60,7 @@ import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import about_vacancy from './about_vacancy.vue';
 import izdzest_vakanci from './izdzest_vakanci.vue'
+import rediget_vakanci from './rediget_vakanci.vue'
 import 'flowbite';
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
@@ -75,6 +76,7 @@ export default {
     FooterAll,
     about_vacancy,
     izdzest_vakanci,
+    rediget_vakanci
   },
 
   data() {
@@ -119,6 +121,8 @@ export default {
                     }
                     }).then(() => {
                         this.izveidots()
+                        window.location.reload();
+
                     })
                     .catch((error) => {
                         console.log('FAILURE!!', error);
@@ -213,13 +217,7 @@ export default {
                         <div class="p-5 flex-grow">
 
                             <div v-if="$page.props.auth.user" class="flex justify-between">
-                            <a href="#" onclick="Rediget.showModal()" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-orange-500 hover:bg-orange-600">
-                                     Rediģēt
-                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
-                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
-                                    </svg>
-                                </a>
+                            <rediget_vakanci :vakance="vakance" @click="getVakances()"></rediget_vakanci>
                               <izdzest_vakanci :vakance="vakance" @click="getVakances()"></izdzest_vakanci>
                            </div>
 
@@ -311,55 +309,7 @@ export default {
                         </div>
             </dialog>
 
-            <dialog id="Rediget" class="modal">
-                        <div class="modal-box bg-white">
-                            <h3 class="font-bold">Rediģēšana</h3>
-                            
-                            <section class="bg-white dark:bg-gray-900">
-                            <div class="max-w-2xl">
-                                <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Šīs vakances rediģēšana</h2>
-                                <form action="#" class="space-y-7">
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Nosaukums</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">īss apraksts</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="īss apraksts" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Alga</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Alga" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Atrašanās vieta</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
-                                </div>
-                                <form class="max-w-lg mx-auto">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
-                                <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
-                                </form>
-                                
-                                <div class="sm:col-span-2">
-                                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
-                                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
-                                </div>
-                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
-
-                            </form>
-                            </div>
-                            </section>
-                            <div class="modal-action flex justify-between">
-                            <form method="dialog">
-                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Rediģēt</button>
-                            </form>
-                            <form method="dialog">
-                                <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
-                            </form>
-                            </div>
-                        </div>
-            </dialog>
+            
 
             <dialog id="Izveidot" class="modal">
                         <div class="modal-box bg-white">

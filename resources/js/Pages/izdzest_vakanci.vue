@@ -91,17 +91,8 @@
     toggleModal: function(){
       this.showModal = !this.showModal;
     },
-    getVakances() {
-        axios.get('vakances/show').then(response => {
-            this.vakances = response.data;
-        }).catch((error) => {
-                        console.log('FAILURE!!', error);
-                    });
-        },
     removeVakance(){
-            this.loadingStatus = true,
-            axios.delete('vakances/remove/' + this.vakance.id).then(response => {
-
+            axios.delete('vakances/remove/' + this.vakance.id).then(response => {      
                     }).catch(errors => {
                     console.log(errors);
                 });
