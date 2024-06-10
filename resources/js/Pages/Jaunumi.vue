@@ -77,7 +77,27 @@ Aktuālais
 
 </div>
 </section>
-
+<div class="max-w-7xl mx-auto flex">
+<button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main mr-2 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+    Pievienot jaunu ziņu
+</button>
+<div v-if="$page.props.auth.user" class="flex justify-evenly">
+                            <a href="#" onclick="Rediget.showModal()" class="transition-all mr-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-full bg-orange-500 hover:bg-orange-600">
+                                     Rediģēt
+                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" @click="openModalDzest" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-full bg-orange-500 hover:bg-ogange-600">
+                                     Izdzēst
+                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
+                                    </svg>
+                                </a>
+                           </div>
+                        </div>
 <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl">
 <hr class="border-gray-600/30" />
 </div>
@@ -168,25 +188,7 @@ Mākoņskaitļošana: Efektivitātes un drošības nodrošinājums
 <span class="sr-only">Lasīt</span>
 </a>
 </div>
-<button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
-    Pievienot jaunu ziņu
-</button>
-<div v-if="$page.props.auth.user" class="flex justify-evenly">
-                            <a href="#" onclick="Rediget.showModal()" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-orange-500 hover:bg-orange-600">
-                                     Rediģēt
-                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
-                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
-                                    </svg>
-                                </a>
-                                <a href="#" @click="openModalDzest" class="transition-all  inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-orange-500 hover:bg-ogange-600">
-                                     Izdzēst
-                                    <svg class="w-3.5 h-3.5 ms-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                                        <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"/>
-                                        <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
-                                    </svg>
-                                </a>
-                           </div>
+
 
 <dialog id="Rediget" class="modal">
                         <div class="modal-box bg-white">
