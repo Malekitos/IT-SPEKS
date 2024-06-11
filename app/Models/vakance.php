@@ -16,7 +16,10 @@ class vakance extends Model
         'alga',
         'atrasanas_vieta',
         'attels',
-        'darba_apraksts'
+        'darba_apraksts',
+        'darba_laiks',
+        'darba_veids',
+        'valodas_veids'
 
     ];
 }

@@ -88,7 +88,11 @@ export default {
             atrasanas_vieta_ievade: "",
             attels_ievade: "",
             darba_apraksts_ievade: "",
-            attels_atrodas: "./images/"
+            attels_atrodas: "./images/",
+            darba_veids_ievade: "",
+            darba_laiks_ievade: "",
+            valodas_veids: "",
+
    
     };
   },
@@ -158,7 +162,7 @@ export default {
 
             <div class="mx-auto" >
                 <div class="mx-auto p-10 ml-5 mr-5 text-gray-900">
-                    <div class="bg-white p-4 rounded-lg shadow-md max-w-4xl mx-auto">
+                    <div class="bg-white p-4 rounded-lg shadow-md max-w-4xl mx-auto mb-10">
         <div class="flex items-center space-x-4">
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">Vieta vai attālināti</label>
@@ -230,9 +234,13 @@ export default {
             </label>
         </div>
         <div class="flex justify-between mt-4">
-            <button class="px-4 py-2 bg-indigo-600 text-white rounded-md">Meklēšana</button>
-       
+            <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">Meklēšana</button>
+            <button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
+                Pievienot jaunu vakanci
+            </button>   
         </div>
+     
+
     </div>
       
 <!-- вакансии -->
@@ -383,6 +391,36 @@ export default {
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
                                     <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
                                 </div>
+
+                                
+
+                                <form class="mx-auto">
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei</label>
+                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value="LV">Latviešu valoda</option>
+                                    <option value="EN">Angļu valoda</option>
+                                </select>
+                                </form>
+
+                                <form class="mx-auto">
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku</label>
+                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value=6>6 stundas</option>
+                                    <option value=8>8 stundas</option>
+                                    <option value=12>12 stundas</option>
+                                </select>
+                                </form>
+
+                                <form class="mx-auto">
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei</label>
+                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value="vietas">Uz vietas</option>
+                                    <option value="attalinati">Attālināti</option>
+                                </select>
+                                </form>
+
+
+
 
                                 <button class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
                             </form>

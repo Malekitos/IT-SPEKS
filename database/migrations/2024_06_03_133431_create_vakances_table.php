@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('atrasanas_vieta');
             $table->binary('attels');
             $table->text('darba_apraksts');
+            $table->integer('darba_laiks');
+            $table->string('darba_veids');
+            $table->string('valodas_veids');
+
 
             $table->timestamps();
         });

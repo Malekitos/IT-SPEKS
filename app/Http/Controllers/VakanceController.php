@@ -46,6 +46,10 @@ class VakanceController extends Controller
         $vakance-> atrasanas_vieta = $request->atrasanas_vieta_ievade;
         $vakance-> attels = $newImageName;
         $vakance-> darba_apraksts = $request->darba_apraksts_ievade;
+        $vakance-> darba_laiks = $request->darba_laiks_ievade;
+        $vakance-> darba_veids = $request->darba_veids_ievade;
+        $vakance-> valodas_veids = $request->valodas_veids_ievade;
+
 
         $vakance->save();
 
