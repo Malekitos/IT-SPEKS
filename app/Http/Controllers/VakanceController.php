@@ -72,11 +72,21 @@ class VakanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function redigesana(Request $request, vakance $vakance)
+    public function update(Request $request, $id)
     {
-        $vakance = vakance::findOrFail($id);
-        $vakance->update($request->all());
-        return response()->json($vakance, 200);
+        
+
+        vakance::where('id',$id)-> update([
+            'nosaukums' => $request->nosaukums_ievade,
+            'iss_apraksts' => $request->iss_apraksts_ievade,
+            'alga' => $request->alga_ievade,
+            'atrasanas_vieta' => $request->atrasanas_vieta_ievade,
+            // 'attels' => $newImageName,
+            'darba_apraksts' => $request->darba_apraksts_ievade,
+            'darba_laiks' => $request->darba_laiks_ievade,
+            'darba_veids' => $request->darba_veids_ievade,
+            'valodas_veids' => $request->valodas_veids_ievade
+        ]);
     }
 
     /**

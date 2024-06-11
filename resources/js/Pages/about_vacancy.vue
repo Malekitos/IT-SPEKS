@@ -30,16 +30,28 @@
 
                             <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                             <div class="flex flex-col pb-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Alga</dt>
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Šajā darbā jūsu alga būs sākot no </dt>
                                 <dd class="text-lg font-semibold">{{ vakance.alga }} Eiro</dd>
                             </div>
                             <div class="flex flex-col py-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Atrašanās vieta</dt>
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Uzņēmuma atrašanās vieta</dt>
                                 <dd class="text-lg font-semibold">{{ vakance.atrasanas_vieta }}</dd>
                             </div>
                             <div class="flex flex-col pt-3">
-                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Darba apraksts</dt>
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Šī darba apraksts </dt>
                                 <dd class="text-lg font-semibold">{{vakance.darba_apraksts}}</dd>
+                            </div>
+                            <div class="flex flex-col pt-3">
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Šī darba apraksts </dt>
+                                <dd class="text-lg font-semibold">{{vakance.darba_laiks}} stundas</dd>
+                            </div>
+                            <div class="flex flex-col pt-3">
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Kā jūs strādāsiet</dt>
+                                <dd class="text-lg font-semibold">{{vakance.darba_veids}}</dd>
+                            </div>
+                            <div class="flex flex-col pt-3">
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Kādā valodā notiks darbs</dt>
+                                <dd class="text-lg font-semibold">{{vakance.valodas_veids}}</dd>
                             </div>
                         </dl>
 

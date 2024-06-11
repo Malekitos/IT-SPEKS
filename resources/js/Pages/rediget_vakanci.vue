@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
        
     
@@ -53,16 +53,32 @@
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Atrašanās vieta  </label>
                                     <input v-model="atrasanas_vieta_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
                                 </div>
-                                <form class="max-w-lg mx-auto">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
-                                <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                                <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
-                                </form>
                                 
                                 <div class="sm:col-span-2">
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
                                     <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
                                 </div>
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <select id="countries" v-model="valodas_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value="Latviešu valoda">Latviešu valoda</option>
+                                    <option value="Angļu valoda">Angļu valoda</option>
+                                </select>
+                                
+
+                                
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <select id="countries" v-model="darba_laiks_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value=6>6 stundas</option>
+                                    <option value=8>8 stundas</option>
+                                    <option value=12>12 stundas</option>
+                                </select>
+                                
+
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value="vietas">Uz vietas</option>
+                                    <option value="attalinati">Attālināti</option>
+                                </select>
                             </form>
                             </div>
                             </section>
@@ -117,7 +133,10 @@
             atrasanas_vieta_ievade: "",
             attels_ievade: "",
             darba_apraksts_ievade: "",
-            attels_atrodas: "./images/"
+            attels_atrodas: "./images/",
+            darba_veids_ievade: "",
+            darba_laiks_ievade: '',
+            valodas_veids_ievade: '',
         }
     },
     methods: {
@@ -132,8 +151,11 @@
         this.alga_ievade = vakance.alga,
         this.atrasanas_vieta_ievade = vakance.atrasanas_vieta,
         this.attels_ievade = vakance.attels,
-        this.darba_apraksts_ievade = vakance.darba_apraksts
-
+        this.darba_apraksts_ievade = vakance.darba_apraksts,
+        this.darba_veids_ievade = vakance.darba_veids_ievade,
+        this.darba_laiks_ievade = vakance.darba_laiks_ievade,
+        this.valodas_veids_ievade = vakance.valodas_veids_ievade
+        this.vakance.id = vakance.id
     },
 
     redigetVakance(){
@@ -146,15 +168,16 @@
             vacanceData.append('atrasanas_vieta_ievade', this.atrasanas_vieta_ievade);
             vacanceData.append('attels_ievade', this. attels_ievade);
             vacanceData.append('darba_apraksts_ievade', this.darba_apraksts_ievade);
+            vacanceData.append('darba_veids_ievade', this.darba_veids_ievade);
+            vacanceData.append('darba_laiks_ievade', this.darba_laiks_ievade);
+            vacanceData.append('valodas_veids_ievade', this.valodas_veids_ievade);
 
-            axios.patch('vakances/redigesana' + this.vakance.id, vacanceData, {
+            axios.post('vakances/update/' + this.vakance.id, vacanceData, {
                     headers: {
                     'Content-Type': 'multipart/FormData'
                     }
                     }).then(() => {
                         // this.izveidots()
-                    
-
                     })
                     .catch((error) => {
                         console.log('FAILURE!!', error);

@@ -90,8 +90,8 @@ export default {
             darba_apraksts_ievade: "",
             attels_atrodas: "./images/",
             darba_veids_ievade: "",
-            darba_laiks_ievade: "",
-            valodas_veids: "",
+            darba_laiks_ievade: '',
+            valodas_veids_ievade: "",
 
    
     };
@@ -118,6 +118,9 @@ export default {
             vacanceData.append('atrasanas_vieta_ievade', this.atrasanas_vieta_ievade);
             vacanceData.append('attels_ievade', this. attels_ievade);
             vacanceData.append('darba_apraksts_ievade', this.darba_apraksts_ievade);
+            vacanceData.append('darba_veids_ievade', this.darba_veids_ievade);
+            vacanceData.append('darba_laiks_ievade', this. darba_laiks_ievade);
+            vacanceData.append('valodas_veids_ievade', this.valodas_veids_ievade);
 
             axios.post('vakances/add', vacanceData, {
                     headers: {
@@ -126,7 +129,6 @@ export default {
                     }).then(() => {
                         this.izveidots()
                         window.location.reload();
-
                     })
                     .catch((error) => {
                         console.log('FAILURE!!', error);
@@ -267,7 +269,7 @@ export default {
                               <izdzest_vakanci :vakance="vakance" @click="getVakances()"></izdzest_vakanci>
                            </div>
 
-
+                           
                             <a href="#">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">  {{ vakance.nosaukums }}</h5>
                             </a>
@@ -394,30 +396,29 @@ export default {
 
                                 
 
-                                <form class="mx-auto">
+                              
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei</label>
-                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="LV">Latviešu valoda</option>
-                                    <option value="EN">Angļu valoda</option>
+                                <select id="countries" v-model="valodas_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                    <option value="Latviešu valoda">Latviešu valoda</option>
+                                    <option value="Angļu valoda">Angļu valoda</option>
                                 </select>
-                                </form>
+                                
 
-                                <form class="mx-auto">
+                                
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku</label>
-                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                <select id="countries" v-model="darba_laiks_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value=6>6 stundas</option>
                                     <option value=8>8 stundas</option>
                                     <option value=12>12 stundas</option>
                                 </select>
-                                </form>
+                                
 
-                                <form class="mx-auto">
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei</label>
-                                <select id="countries" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value="vietas">Uz vietas</option>
                                     <option value="attalinati">Attālināti</option>
                                 </select>
-                                </form>
+                                
 
 
 
