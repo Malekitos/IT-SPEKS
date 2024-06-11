@@ -128,7 +128,7 @@ export default {
                     }
                     }).then(() => {
                         this.izveidots()
-                        window.location.reload();
+                        this.getVakances()
                     })
                     .catch((error) => {
                         console.log('FAILURE!!', error);
@@ -423,7 +423,7 @@ export default {
 
 
 
-                                <button class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
+                                <button  class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
                             </form>
                             </div>
                             </section>

@@ -94,6 +94,8 @@
             </div>
 
             <div v-if="showModal" class="opacity-40 fixed inset-0 z-30 bg-black "></div>
+           
+
     </div>
 </template>
 <script>
@@ -108,15 +110,15 @@
         initFlowbite();
       });
 
-      const izdzests = () => {
-                toast("Vakance ir veiksmīgi izdzēsta!", {
+      const redigets = () => {
+                toast("Vakance ir veiksmīgi rediģēta!", {
         "theme": "colored",
-        "type": "error",
+        "type": "info",
         "transition": "flip",
         "dangerouslyHTMLString": true
         })
     }
-    return { izdzests };
+    return { redigets };
     
     },
     props:{
@@ -127,6 +129,7 @@
     data(){
         return{
             showModal: false,
+            loading: true,
             nosaukums_ievade: "",
             iss_apraksts_ievade: "",
             alga_ievade: '',
@@ -177,7 +180,7 @@
                     'Content-Type': 'multipart/FormData'
                     }
                     }).then(() => {
-                        // this.izveidots()
+                        this.redigets()
                     })
                     .catch((error) => {
                         console.log('FAILURE!!', error);
