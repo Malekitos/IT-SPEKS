@@ -40,7 +40,7 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                            <button v-on:click="toggleModal()"  @click="removeVakance();izdzests()" type="button" class="btn mr-12 border-0 text-white bg-orange-500  hover:bg-orange-600">Izdzēst</button>
+                            <button v-on:click="toggleModal()"  @click="removeVakance()" type="button" class="btn mr-12 border-0 text-white bg-orange-500  hover:bg-orange-600">Izdzēst</button>
                             <button v-on:click="toggleModal()" type="button" class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
                         </div>
                     </div>
@@ -92,11 +92,14 @@
       this.showModal = !this.showModal;
     },
     removeVakance(){
-            axios.delete('vakances/remove/' + this.vakance.id).then(response => {      
+            axios.delete('vakances/remove/' + this.vakance.id).then(response => { 
+                this.izdzests()     
                     }).catch(errors => {
                     console.log(errors);
                 });
                 },
+
+
 }
   }
 
