@@ -145,7 +145,7 @@
 
         pieteikumuData.append('vards_ievade', this.vards_ievade);
         pieteikumuData.append('uzvards_ievade', this.uzvards_ievade);
-        pieteikumuData.append('talrunis_ievade', this.vakance.talrunis_ievade);
+        pieteikumuData.append('talrunis_ievade', this.talrunis_ievade);
         pieteikumuData.append('epasts_ievade', this.epasts_ievade);
         pieteikumuData.append('komentars_ievade', this.komentars_ievade);
         pieteikumuData.append('cv_ievade', this.cv_ievade);
