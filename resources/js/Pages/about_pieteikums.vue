@@ -40,7 +40,7 @@
                             </div>
                             <div class="flex flex-col py-3">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">CV</dt>
-                                <dd class="transition-all text-lg font-semibold "><a class="bg-slate-100 hover:bg-slate-200 transition-all p-1 rounded-sm" :href="cv_atrodas+pieteikumi.cv" download>Lejupielādēt personas CV</a></dd>
+                                <dd class="transition-all text-lg font-semibold "><a class="bg-slate-200 hover:bg-slate-300 transition-all p-1 rounded-md" :href="cv_atrodas+pieteikumi.cv" download>Lejupielādēt personas CV</a></dd>
                             </div>
                         </dl>
 

@@ -11,6 +11,7 @@ import axios from 'axios';
 import izveidot_pieteikumu from './izveidot_pieteikumu.vue';
 import rediget_pieteikumui from './rediget_pieteikumu.vue'
 import about_pieteikums from './about_pieteikums.vue';
+import izdzest_pieteikumu from './izdzest_pieteikumu.vue';
 
 onMounted(() => {
     initFlowbite();
@@ -22,7 +23,8 @@ export default {
     Head,
     izveidot_pieteikumu,
     rediget_pieteikumui,
-    about_pieteikums
+    about_pieteikums,
+    izdzest_pieteikumu
 
   },
 
@@ -121,10 +123,10 @@ export default {
                                     </td>
                                         
                                     <td class="px-6 py-4 text-right">
-                                        <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">mainit statusu</a>
+                                        <rediget_pieteikumui :pieteikumi="pieteikumi" @click="getPieteikumi()"></rediget_pieteikumui>
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
+                                        <izdzest_pieteikumu :pieteikumi="pieteikumi" @click="getPieteikumi()"></izdzest_pieteikumu>
                                     </td>
                                     
                                 </tr>

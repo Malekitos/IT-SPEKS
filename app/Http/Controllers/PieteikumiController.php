@@ -55,16 +55,16 @@ class PieteikumiController extends Controller
         
 
         pieteikumi::where('id',$id)-> update([
-            'statuss' => $request->status_ievade,
+            'statuss' => $request->statuss_ievade,
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function remove(vakance $vakance)
+    public function remove(pieteikumi $pieteikumi)
     {
-        $vakance->delete();
+        $pieteikumi->delete();
         return response()->json('Vakance deleted successfully!');
     }
 }
