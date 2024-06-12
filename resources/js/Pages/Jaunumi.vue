@@ -5,6 +5,7 @@ import FooterAll from '@/Pages/FooterAll.vue';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import izdzest_jaunumi from './izdzest_jaunumi.vue';
+import rediget_jaunumi from './rediget_jaunumi.vue';
 
 export default {
     components: {
@@ -12,6 +13,7 @@ export default {
     Head,
     FooterAll,
     izdzest_jaunumi,
+    rediget_jaunumi,
   },
 
   data() {
@@ -106,8 +108,8 @@ export default {
 
                 <a class=" transition duration-300 leading-none focus:outline-none focus-visible:ring-2 focus-visible:ring-main-600/80 absolute inset-0 !block h-full w-full !rounded-lg" >
                 <span class="sr-only">Lasīt</span>
-                <!-- <rediget_vakanci :vakance="vakance" @click="getVakances()"></rediget_vakanci> -->
-                <izdzest_jaunumi  :jaunums="jaunums" @click="getJaunumi()"></izdzest_jaunumi>
+                <rediget_jaunumi :jaunums="jaunums" @click="getJaunumi()"></rediget_jaunumi>
+                <izdzest_jaunumi :jaunums="jaunums" @click="getJaunumi()"></izdzest_jaunumi>
                     
                 </a>
                 </div>
