@@ -1,56 +1,3 @@
-<!-- <script setup>
-import Welcome from '@/Pages/Welcome.vue';
-import { Head } from '@inertiajs/vue3';
-import FooterAll from '@/Pages/FooterAll.vue';
-import { toast } from "vue3-toastify";
-import "vue3-toastify/dist/index.css";
-import { ref } from 'vue';
-import Modal from '../Components/Modal.vue';
-
-import Crudvakances from './Crudvakances.vue';
-
-const notify = () => {
-    toast("Jūsu darbība veiksmīgi pabeigta!", {
-  "theme": "auto",
-  "type": "success",
-  "dangerouslyHTMLString": true
-});
-  return { notify };
-};
-    
-const isModalVisibleDzest = ref(false);
-const openModalDzest = () => {
-  isModalVisibleDzest.value = true;
-};
-
-const closeModalDzest = () => {
-    isModalVisibleDzest.value = false;
-};
-
-const emits = defineEmits(['submit']);
-
-const nosaukums_ievade = ref('');
-const iss_apraksts_ievade = ref('');
-const alga_ievade = ref('');
-const atrasanas_vieta_ievade = ref('');
-const attels_ievade = ref('');
-const darba_apraksts_ievade = ref('');
-
-
-const handleSubmit = () => {
-  emits('submit', {
-    nosaukums_ievade: nosaukums_ievade.value,
-    iss_apraksts_ievade: iss_apraksts_ievade.value,
-    alga_ievade: alga_ievade.value,
-    atrasanas_vieta_ievade: atrasanas_vieta_ievade.value,
-    attels_ievade: attels_ievade.value,
-    darba_apraksts_ievade: darba_apraksts_ievade.value
-
-  });
-};
-
-</script> -->
-
 <script>
 
 import Welcome from '@/Pages/Welcome.vue';
@@ -81,6 +28,13 @@ export default {
 
   data() {
     return {
+        filters: {
+                workType: '',
+                keyword: '',
+                workgraph: '',
+                language: '',
+                salary: ''
+            },
             vakances: [],
             nosaukums_ievade: "",
             iss_apraksts_ievade: "",
@@ -135,6 +89,8 @@ export default {
                     });
         }
 
+        
+
     },
 
     mounted() {
@@ -168,7 +124,7 @@ export default {
         <div class="flex items-center space-x-4">
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("workType") }}</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <select v-model="filters.workType" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option>{{  $t("chooseAll") }}</option>
                     <option value="onsite">{{  $t("onsite") }}</option>
                     <option value="remote">{{  $t("remote") }}</option>
@@ -185,7 +141,7 @@ export default {
   
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("workgraph") }}</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <select v-model="filters.workgraph" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option>{{  $t("chooseAll") }}</option>
                     <option value=6>{{  $t("hours6") }}</option>
                     <option value=8>{{  $t("hours8") }}</option>
@@ -194,7 +150,7 @@ export default {
             </div>
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("languages") }}</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <select v-model="filters.language" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option value="">{{  $t("chooseAll") }}</option>
                     <option value="LV">{{  $t("langlv") }}</option>
                     <option value="EN">{{  $t("langen") }}</option>
@@ -202,12 +158,12 @@ export default {
             </div>
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">  <option>{{  $t("salary") }}</option></label>
-                <input type="number" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <input v-model="filters.salary" type="number" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             </div>
         </div>
 
         <div class="flex justify-between mt-4">
-            <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">{{ $t ("find")}}</button>
+            <button @click="fetchVacancies" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">{{ $t ("find")}}</button>
             <button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
                 Pievienot jaunu vakanci
             </button>   
@@ -408,18 +364,5 @@ export default {
   </div>
     </Welcome>
     <FooterAll></FooterAll>
-
-    <!-- <Modal :show="isModalVisibleDzest" @close="closeModalDzest" maxWidth="md" >
-      <template #default>
-        <div class="p-4 ">
-          <h2 class="text-lg font-semibold">Dzēšana!</h2>
-          <p class="text-slate-700">Vai esat pārliecināts, ka vēlaties dzēst šo vakanci?</p>
-          <div class="flex justify-between">
-            <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 transition-all text-white rounded">JĀ</button>
-          <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-all text-white rounded">NĒ</button>
-          </div>
-        </div>
-      </template>
-    </Modal> -->
 
 </template>
