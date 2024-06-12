@@ -219,7 +219,7 @@ export default {
 
                             <div v-if="$page.props.auth.user" class="flex justify-between">
                             <rediget_vakanci :vakance="vakance" @click="getVakances()"></rediget_vakanci>
-                              <izdzest_vakanci :vakance="vakance" @click="getVakances()"></izdzest_vakanci>
+                            <izdzest_vakanci :vakance="vakance" @click="getVakances()"></izdzest_vakanci>
                            </div>
 
                            

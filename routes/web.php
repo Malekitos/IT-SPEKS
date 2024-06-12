@@ -16,7 +16,7 @@ use App\Http\Controllers\JaunumiController;
 Route::apiResource('Jaunumi', JaunumiController::class);
 Route::post('Jaunumi/add', [JaunumiController::class, 'store']);
 Route::post('Jaunumi/update/{id}', [JaunumiController::class, 'update']);
-Route::delete('Jaunumi/remove/{vakance}', [JaunumiController::class, 'remove']);
+Route::delete('Jaunumi/remove/{Jaunumi}', [JaunumiController::class, 'remove']);
 
 
 
