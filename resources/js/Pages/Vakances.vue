@@ -11,6 +11,7 @@ import rediget_vakanci from './rediget_vakanci.vue'
 import 'flowbite';
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
+import axios from 'axios';
 
 onMounted(() => {
     initFlowbite();
@@ -50,7 +51,33 @@ export default {
    
     };
   },
-  
+
+  computed: {
+  filteredVakances() {
+    if (
+      this.filters.workType === '' &&
+      this.filters.keyword === '' &&
+      this.filters.workgraph === '' &&
+      this.filters.language === '' &&
+      this.filters.salary === ''
+    ) {
+      // If no filters are selected, return all vacancies
+      return this.vakances;
+    } else {
+      // If filters are selected, apply filtering logic
+      return this.vakances.filter(vakance => {
+        return (
+          (this.filters.workType === '' || vakance.darba_veids === this.filters.workType) &&
+          (this.filters.keyword === '' || vakance.nosaukums.toLowerCase().includes(this.filters.keyword.toLowerCase())) &&
+          (this.filters.workgraph === '' || vakance.darba_laiks == this.filters.workgraph) &&
+          (this.filters.language === '' || vakance.valodas_veids === this.filters.language) &&
+          (this.filters.salary === '' || vakance.alga >= this.filters.salary)
+        );
+      });
+    }
+  }
+},
+
   methods: {
         getVakances() {
         axios.get('vakances/show').then(response => {
@@ -87,9 +114,8 @@ export default {
                     .catch((error) => {
                         console.log('FAILURE!!', error);
                     });
-        }
+        },
 
-        
 
     },
 
@@ -125,15 +151,15 @@ export default {
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("workType") }}</label>
                 <select v-model="filters.workType" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>{{  $t("chooseAll") }}</option>
-                    <option value="onsite">{{  $t("onsite") }}</option>
-                    <option value="remote">{{  $t("remote") }}</option>
+                    <option value="">{{  $t("chooseAll") }}</option>
+                    <option value="Uzvietas">{{  $t("onsite") }}</option>
+                    <option value="Attalinati">{{  $t("remote") }}</option>
                 </select>
             </div>
     
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("keyword") }}</label>
-                <input type="text" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" >
+                <input v-model="filters.keyword" type="text" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" >
             </div>
         </div>
         <div class="flex items-center space-x-4 mt-4">
@@ -142,7 +168,7 @@ export default {
             <div class="flex-1">
                 <label class="block text-sm font-medium text-gray-700">{{  $t("workgraph") }}</label>
                 <select v-model="filters.workgraph" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>{{  $t("chooseAll") }}</option>
+                    <option value="">{{  $t("chooseAll") }}</option>
                     <option value=6>{{  $t("hours6") }}</option>
                     <option value=8>{{  $t("hours8") }}</option>
                     <option value=12>{{  $t("hours12") }}</option>
@@ -152,8 +178,8 @@ export default {
                 <label class="block text-sm font-medium text-gray-700">{{  $t("languages") }}</label>
                 <select v-model="filters.language" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                     <option value="">{{  $t("chooseAll") }}</option>
-                    <option value="LV">{{  $t("langlv") }}</option>
-                    <option value="EN">{{  $t("langen") }}</option>
+                    <option value="Latviesu">{{  $t("langlv") }}</option>
+                    <option value="Anglu">{{  $t("langen") }}</option>
                 </select>
             </div>
             <div class="flex-1">
@@ -162,8 +188,8 @@ export default {
             </div>
         </div>
 
-        <div class="flex justify-between mt-4">
-            <button @click="fetchVacancies" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">{{ $t ("find")}}</button>
+        <div class="flex justify-center mt-4">
+        
             <button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
                 Pievienot jaunu vakanci
             </button>   
@@ -172,24 +198,24 @@ export default {
 
     </div>
       
-<!-- вакансии -->
-
-                <!-- <div v-for="(vakance,index) in vakances":key="index">
-
-                    {{ vakance.nosaukums }}
-
-                </div> -->
-
+                        <!-- вакансии -->
                         <!-- Выравнивание всех контейнеров -->
-                        <div class="flex flex-wrap gap-16 place-content-center ">
-
-                        
-
-                    <div v-for="(vakance,index) in vakances":key="index" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between ">
+                <div class="flex flex-wrap gap-16 place-content-center">
+                    <div v-for="(vakance, index) in filteredVakances" :key="index" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
                         <a href="#">
                             <img class="rounded-t-lg" :src=attels_atrodas+vakance.attels alt="" />
                         </a>
-                        <div class="p-5 flex-grow">
+                        <div class="p-5">
+                            <div class="flex items-center justify-between">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ vakance.nosaukums_ievade }}</h5>
+                            </div>
+                            <p class="mb-3 font-normal text-gray-700">{{ vakance.iss_apraksts_ievade }}</p>
+
+
+
+
+
+
 
                             <div v-if="$page.props.auth.user" class="flex justify-between">
                             <rediget_vakanci :vakance="vakance" @click="getVakances()"></rediget_vakanci>
@@ -215,23 +241,16 @@ export default {
                                         <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"/>
                                     </svg>
                                 </a>
-
-                                
-                                                                
-
                             </div>
                         </div>
                     </div>
-
-                        </div>
-                    <!-- конец вакансий -->
-
                 </div>
             </div>
+        </div>
 
         
 
-        
+ <!-- --------------Modali----------------- -->        
 
 
             <dialog id="Pieteikties" class="modal">
@@ -324,8 +343,8 @@ export default {
                               
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei</label>
                                 <select id="countries" v-model="valodas_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="LV">Latviešu valoda</option>
-                                    <option value="EN">Angļu valoda</option>
+                                    <option value="Latviesu">Latviešu valoda</option>
+                                    <option value="Anglu">Angļu valoda</option>
                                 </select>
                                 
 
@@ -340,8 +359,8 @@ export default {
 
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei</label>
                                 <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="vietas">Uz vietas</option>
-                                    <option value="attalinati">Attālināti</option>
+                                    <option value="Uzvietas">Uz vietas</option>
+                                    <option value="Attalinati">Attālināti</option>
                                 </select>
                                 
 

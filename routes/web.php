@@ -8,7 +8,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\VakanceController;
 Route::apiResource('vakances', VakanceController::class);
 Route::post('vakances/add', [VakanceController::class, 'store']);
-Route::post('vakances/show', [VakanceController::class, 'show']);
+Route::get('vakances', [VakanceController::class, 'show']);
 Route::post('vakances/update/{id}', [VakanceController::class, 'update']);
 Route::delete('vakances/remove/{vakance}', [VakanceController::class, 'remove']);
 

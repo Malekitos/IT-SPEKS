@@ -10,10 +10,34 @@ class VakanceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function show()
+    public function show(Request $request)
     {
+        $query = Vakance::query();
+
+        if ($request->filled('workType')) {
+            $query->where('darba_veids', $request->workType);
+        }
+
+        if ($request->filled('keyword')) {
+            $query->where('nosaukums', 'like', '%' . $request->keyword . '%')
+                  ->orWhere('iss_apraksts', 'like', '%' . $request->keyword . '%');
+        }
+
+        if ($request->filled('workgraph')) {
+            $query->where('darba_laiks', $request->workgraph);
+        }
+
+        if ($request->filled('language')) {
+            $query->where('valodas_veids', $request->language);
+        }
+
+        if ($request->filled('salary')) {
+            $query->where('alga', '>=', $request->salary);
+        }
+
         return Vakance::all();
     }
+    
  
     /**
      * Show the form for creating a new resource.
