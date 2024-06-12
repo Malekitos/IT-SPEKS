@@ -268,14 +268,12 @@ export default {
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Komentārs</label>
                                     <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Leave a comment..."></textarea>
                                 </div>
-                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
-
                             </form>
                             </div>
                             </section>
                             <div class="modal-action flex justify-between">
                             <form method="dialog">
-                                <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button>
+                                <button class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button>
                             </form>
                             <form method="dialog">
                                 <button class="btn border-0 text-white bg-slate-500 hover:bg-slate-600">Aizvērt</button>
@@ -312,13 +310,13 @@ export default {
                                 </div>
                                 <form class="max-w-lg mx-auto">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Lejupielādēt attēlu</label>
-                                <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                                <input @change="handleFileUpload" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" required>
                                 <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">augšupielādējiet nelielu attēlu Jūsu vakancei.</div>
                                 </form>
                                 
                                 <div class="sm:col-span-2">
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
-                                    <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
+                                    <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts" required></textarea>
                                 </div>
 
                                 
@@ -333,7 +331,7 @@ export default {
 
                                 
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku</label>
-                                <select id="countries" v-model="darba_laiks_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
+                                <select required id="countries" v-model="darba_laiks_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value=6>6 stundas</option>
                                     <option value=8>8 stundas</option>
                                     <option value=12>12 stundas</option>
@@ -342,15 +340,15 @@ export default {
 
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei</label>
                                 <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="onsite">Uz vietas</option>
-                                    <option value="remote">Attālināti</option>
+                                    <option value="vietas">Uz vietas</option>
+                                    <option value="attalinati">Attālināti</option>
                                 </select>
                                 
 
 
 
 
-                                <button  class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
+                                <button @click="getVakances()"  class="btn bg-main border-0 text-white hover:bg-accent">Izveidot</button>
                             </form>
                             </div>
                             </section>

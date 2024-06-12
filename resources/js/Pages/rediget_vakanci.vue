@@ -58,7 +58,7 @@
                                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Pilns darba apraksts</label>
                                     <textarea v-model="darba_apraksts_ievade" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-main focus:border-main" placeholder="Pilns darba apraksts"></textarea>
                                 </div>
-                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei  </label>
                                 <select id="countries" v-model="valodas_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value="Latviešu valoda">Latviešu valoda</option>
                                     <option value="Angļu valoda">Angļu valoda</option>
@@ -66,7 +66,7 @@
                                 
 
                                 
-                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties šīs vakances darba laiku  </label>
                                 <select id="countries" v-model="darba_laiks_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value=6>6 stundas</option>
                                     <option value=8>8 stundas</option>
@@ -74,7 +74,7 @@
                                 </select>
                                 
 
-                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei  <a class="underline decoration-sky-500 font-bold">atkārtoti</a></label>
+                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakance</label>
                                 <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
                                     <option value="vietas">Uz vietas</option>
                                     <option value="attalinati">Attālināti</option>
@@ -155,9 +155,9 @@
         this.atrasanas_vieta_ievade = vakance.atrasanas_vieta,
         this.attels_ievade = vakance.attels,
         this.darba_apraksts_ievade = vakance.darba_apraksts,
-        this.darba_veids_ievade = vakance.darba_veids_ievade,
-        this.darba_laiks_ievade = vakance.darba_laiks_ievade,
-        this.valodas_veids_ievade = vakance.valodas_veids_ievade
+        this.darba_veids_ievade = vakance.darba_veids,
+        this.darba_laiks_ievade = vakance.darba_laiks,
+        this.valodas_veids_ievade = vakance.valodas_veids,
         this.vakance.id = vakance.id
     },
 

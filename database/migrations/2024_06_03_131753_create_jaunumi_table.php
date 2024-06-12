@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jaunumi', function (Blueprint $table) {
+        Schema::create('jaunumis', function (Blueprint $table) {
             $table->id()->primary();
             $table->text('nosaukums');
             $table->binary('attels'); // blob img
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jaunumi');
+        Schema::dropIfExists('jaunumis');
     }
 };
