@@ -26,6 +26,23 @@
     
   "mainSubtitle": "IT-SPEKS vakances portals ar",
   "supportText": "jūsu vajadzībām ar ilgtermiņa atbalstu.",
-  "quote": "\"Tehnoloģiju pasaulē nepārtraukta mācīšanās nav tikai stratēģija, tā ir izdzīvošana.\""
+  "quote": "\"Tehnoloģiju pasaulē nepārtraukta mācīšanās nav tikai stratēģija, tā ir izdzīvošana.\"",
+
+  "workType": "Klatiene/Attalināti",
+  "keyword": "Ieraksti atslēgvārdu",
+  "workgraph": "Darba grafiks",
+  "languages": "Valoda",
+  "salary": "Alga no",
+  "chooseAll": "Iekļaut visu",
+  "find": "Filtrēt",
+  "remote": "Attalināti",
+  "onsite": "Klatiene",
+  "hours6": "6 stundas",
+  "hours8": "8 stundas",
+  "hours12": "12 stundas",
+  "langlv": "Latviešu",
+  "langen": "Angļu"
+  
+  
   }
   
