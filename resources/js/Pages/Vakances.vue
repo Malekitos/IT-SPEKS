@@ -167,76 +167,47 @@ export default {
                     <div class="bg-white p-4 rounded-lg shadow-md max-w-4xl mx-auto mb-10">
         <div class="flex items-center space-x-4">
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Vieta vai attālināti</label>
+                <label class="block text-sm font-medium text-gray-700">{{  $t("workType") }}</label>
                 <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>Vieta vai attālināti</option>
+                    <option>{{  $t("chooseAll") }}</option>
+                    <option value="onsite">{{  $t("onsite") }}</option>
+                    <option value="remote">{{  $t("remote") }}</option>
                 </select>
             </div>
+    
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Meklēt pēc kategorijas</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>Meklēt pēc kategorijas</option>
-                </select>
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Ierakstiet atslēgvārdu</label>
-                <input type="text" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="Ierakstiet atslēgvārdu">
+                <label class="block text-sm font-medium text-gray-700">{{  $t("keyword") }}</label>
+                <input type="text" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" >
             </div>
         </div>
         <div class="flex items-center space-x-4 mt-4">
+
+  
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Termiņš</label>
+                <label class="block text-sm font-medium text-gray-700">{{  $t("workgraph") }}</label>
                 <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>lekļaut visu</option>
+                    <option>{{  $t("chooseAll") }}</option>
+                    <option value=6>{{  $t("hours6") }}</option>
+                    <option value=8>{{  $t("hours8") }}</option>
+                    <option value=12>{{  $t("hours12") }}</option>
                 </select>
             </div>
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Nodarbinātības veids</label>
+                <label class="block text-sm font-medium text-gray-700">{{  $t("languages") }}</label>
                 <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>lekļaut visu</option>
+                    <option value="">{{  $t("chooseAll") }}</option>
+                    <option value="LV">{{  $t("langlv") }}</option>
+                    <option value="EN">{{  $t("langen") }}</option>
                 </select>
             </div>
             <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Darba laiks</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>lekļaut visu</option>
-                </select>
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Valoda</label>
-                <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <option>lekļaut visu</option>
-                </select>
-            </div>
-            <div class="flex-1">
-                <label class="block text-sm font-medium text-gray-700">Alga no</label>
-                <input type="number" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" placeholder="1000">
+                <label class="block text-sm font-medium text-gray-700">  <option>{{  $t("salary") }}</option></label>
+                <input type="number" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
             </div>
         </div>
-        <div class="flex items-center space-x-4 mt-4">
-            <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox text-indigo-600">
-                <span class="ml-2">Darbs maiņās</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox text-indigo-600">
-                <span class="ml-2">Piedāvājumi studentiem</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox text-indigo-600">
-                <span class="ml-2">Piemērots pusaudžiem</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox text-indigo-600">
-                <span class="ml-2">Personām ar īpašām vajadzībām</span>
-            </label>
-            <label class="inline-flex items-center">
-                <input type="checkbox" class="form-checkbox text-indigo-600">
-                <span class="ml-2">Tikai ar algām</span>
-            </label>
-        </div>
+
         <div class="flex justify-between mt-4">
-            <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">Meklēšana</button>
+            <button class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">{{ $t ("find")}}</button>
             <button v-if="$page.props.auth.user" onclick="Izveidot.showModal()" class="bg-main hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">
                 Pievienot jaunu vakanci
             </button>   
@@ -399,8 +370,8 @@ export default {
                               
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties valodu šai vakancei</label>
                                 <select id="countries" v-model="valodas_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="Latviešu valoda">Latviešu valoda</option>
-                                    <option value="Angļu valoda">Angļu valoda</option>
+                                    <option value="LV">Latviešu valoda</option>
+                                    <option value="EN">Angļu valoda</option>
                                 </select>
                                 
 
@@ -415,8 +386,8 @@ export default {
 
                                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Izvēlieties darba veidu šai vakancei</label>
                                 <select id="countries" v-model="darba_veids_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5">
-                                    <option value="vietas">Uz vietas</option>
-                                    <option value="attalinati">Attālināti</option>
+                                    <option value="onsite">Uz vietas</option>
+                                    <option value="remote">Attālināti</option>
                                 </select>
                                 
 

@@ -24,7 +24,22 @@
 
   "mainSubtitle": "IT-SPEKS software development company",
   "supportText": "for your needs with long-term support.",
-  "quote": "\"In the world of technology, continuous learning is not just a strategy, it is survival.\""
+  "quote": "\"In the world of technology, continuous learning is not just a strategy, it is survival.\"",
+
+  "workType": "Remote/Onsite",
+  "keyword": "Write keyword",
+  "workgraph": "Schedule",
+  "languages": "Language",
+  "salary": "Salary from",
+  "chooseAll": "Choose all",
+  "find": "Find",
+  "remote": "Remote",
+  "onsite": "Onsite",
+  "hours6": "6 hours",
+  "hours8": "8 hours",
+  "hours12": "12 hours",
+  "langlv": "Latvian",
+  "langen": "English"
 }
 
 

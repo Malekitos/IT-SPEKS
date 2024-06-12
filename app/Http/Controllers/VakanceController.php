@@ -14,7 +14,7 @@ class VakanceController extends Controller
     {
         return Vakance::all();
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      */
