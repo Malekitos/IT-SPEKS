@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
 
-    public function show(Request $request)
+    public function show()
     {
         return User::all();
     }
