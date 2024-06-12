@@ -1,47 +1,77 @@
-<script setup>
+<script>
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import 'flowbite';
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
+import axios from 'axios';
+import izveidot_pieteikumu from './izveidot_pieteikumu.vue';
+import rediget_pieteikumui from './rediget_pieteikumu.vue'
+import about_pieteikums from './about_pieteikums.vue';
 
-const notifyadd = () => {
-      toast("Wow so easy !", {
-        autoClose: 1000,
-      }); // ToastOptions
-      return { notifyadd };
+onMounted(() => {
+    initFlowbite();
+})
+
+export default {
+    components: {
+    AuthenticatedLayout,
+    Head,
+    izveidot_pieteikumu,
+    rediget_pieteikumui,
+    about_pieteikums
+
+  },
+
+  data() {
+    return {
+  
+            pieteikumi: [],
+
+   
+    };
+  },
+
+  methods: {
+        getPieteikumi() {
+        axios.get('pieteikumi/show').then(response => {
+            this.pieteikumi = response.data;
+        }).catch((error) => {
+                        console.log('FAILURE!!', error);
+                    });
+        },
+      
+
+
+    },
+
+    mounted() {
+    this.getPieteikumi();
+  },
+
+    setup() {
+
+    const ienacis = () => {
+                toast("Jūs esat ienācis administratora dalā, laipni lūdzam. ", {
+        "type": "default",
+        "transition": "flip",
+        "dangerouslyHTMLString": true
+        })
     }
+    return { ienacis };
     
- 
-
-import { ref } from 'vue';
-import Modal from '../Components/Modal.vue';
-
-
-const isModalVisibleRediget = ref(false);
-const isModalVisibleDzest = ref(false);
-
-const openModalRediget = () => {
-  isModalVisibleRediget.value = true;
+   }
 };
-
-const closeModalRediget = () => {
-    isModalVisibleRediget.value = false;
-};
-
-const openModalDzest = () => {
-  isModalVisibleDzest.value = true;
-};
-
-const closeModalDzest = () => {
-    isModalVisibleDzest.value = false;
-};
-
 </script>
 
 <template>
     <Head title="Dashboard" />
 
     <AuthenticatedLayout class="">
+        
         
 
         <div class="py-12 ">
@@ -61,34 +91,35 @@ const closeModalDzest = () => {
                                         Uzvārds
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        e-pasts
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
                                         Vakancija
                                     </th>
                                     <th>Statuss</th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Apskatit
+                                    </th>
                                     <th></th>
                                     <th></th>
                                     
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr v-for="(pieteikumi, index) in pieteikumi" :key="index" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Dzonatans
+                                        {{pieteikumi.vards}}
                                     </th>
                                     <td class="px-6 py-4">
-                                        Svilis-Sudints
+                                        {{pieteikumi.uzvards}}
                                     </td>
                                     <td class="px-6 py-4">
-                                        Dzonatan@gmail.com
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        IT Business Analyst
+                                        {{pieteikumi.vakance}}
                                     </td>
                                     <td>
-                                        Apstrādē
+                                        {{pieteikumi.statuss}}
                                     </td>
+                                    <td class="px-6 py-4 text-center">
+                                        <about_pieteikums :pieteikumi="pieteikumi"></about_pieteikums>
+                                    </td>
+                                        
                                     <td class="px-6 py-4 text-right">
                                         <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">mainit statusu</a>
                                     </td>
@@ -98,30 +129,7 @@ const closeModalDzest = () => {
                                     
                                 </tr>
 
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Egors
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Kalejs
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Kalejs@gmail.com
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        PHP programmētājs
-                                    </td>
-                                    <td>
-                                        Atteikts
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">mainit statusu</a>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
-                                    </td>
-                                    
-                                </tr>
+                                
                                 
                             </tbody>
                         </table>
@@ -134,110 +142,19 @@ const closeModalDzest = () => {
         </div>
         
       
-
-
-
-    <Modal :show="isModalVisiblePievienot" @close="closeModalPievienot" maxWidth="md" >
-      <template #default>
-        <div class="p-4 ">
-          
-          <h3 class="font-bold">Pievienošana</h3>
-                            
-                            <section class="bg-white dark:bg-gray-900">
-                            <div class="max-w-2xl">
-                                <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Izveidot jaunu lietotāju</h2>
-                                <form action="#" class="space-y-7">
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Vārds</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Uzvārds</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Uzvārds" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Talrunis</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="+37125524933" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-pasts</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="it-speks@gmail.com" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Parole</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="*strong password*" required>
-                                </div>
-                                <div>
-                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Loma</label>
-                                <select id="role" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
-                                    <option value="" disabled selected>Izvēlēties lomu</option>
-                                    <option value="admin">Administrators</option>
-                                    <option value="moderator">Moderators</option>
-                                </select>
-                                </div>
-                                                            
-
-                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
-
-                            </form>
-                            </div>
-                            </section>
-                            
-
-          <div class="flex justify-between">
-            <button @click="closeModalPievienot" class="mt-4 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition-all">Add</button>
-          <button @click="closeModalPievienot" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition-all">Close</button>
-          </div>
-        </div>
-      </template>
-    </Modal>
-
-    <Modal :show="isModalVisibleRediget" @close="closeModalRediget" maxWidth="md" >
-      <template #default>
-        <div class="p-4 Rediģēšana ">
-          <h3 class="font-bold">Maiņa</h3>
-                            
-                            <section class="bg-white dark:bg-gray-900">
-                            <div class="max-w-2xl">
-                                <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Statusa maiņa</h2>
-                                <form action="#" class="space-y-7">
-                        
-                                <div>
-                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Statuss</label>
-                                <select id="role" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
+        <!-- <select id="role" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
                                     <option value="" disabled selected>Izvēlieties jaunu statusu</option>
                                     <option value="admin">Apstrādē</option>
                                     <option value="moderator">Sarunā ar personu</option>
                                     <option value="moderator">Atteikts</option>
-                                </select>
-                                </div>
-                                                            
+                                </select> -->
 
-                                <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->
 
-                            </form>
-                            </div>
-                            </section>
-          <div class="flex justify-between">
-            <button @click="closeModalRediget" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition-all">Maiņa</button>
-          <button @click="closeModalRediget" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition-all">Close</button>
-          </div>
-        </div>
-      </template>
-    </Modal>
+    
 
-    <Modal :show="isModalVisibleDzest" @close="closeModalDzest" maxWidth="md" >
-      <template #default>
-        <div class="p-4 ">
-          <h2 class="text-lg font-semibold">Dzēšana!</h2>
-          <p class="text-slate-700">Vai esat pārliecināts, ka vēlaties dzēst šo pieteikumu?</p>
-          <div class="flex justify-between">
-            <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 transition-all text-white rounded">JĀ</button>
-          <button @click="closeModalDzest" class="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-all text-white rounded">NĒ</button>
-          </div>
-        </div>
-      </template>
-    </Modal>
+    
+
+    
    
 
     

@@ -6,10 +6,13 @@ use App\Models\pieteikumi;
 use App\Http\Requests\StorepieteikumiRequest;
 use App\Http\Requests\UpdatepieteikumiRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 class PieteikumiController extends Controller
 {
    
+
     public function show()
     {
         return pieteikumi::all();

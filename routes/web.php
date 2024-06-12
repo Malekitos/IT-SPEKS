@@ -27,6 +27,7 @@ Route::delete('pieteikumi/remove/{pieteikumi}', [PieteikumiController::class, 'r
 
 
 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
