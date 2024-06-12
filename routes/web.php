@@ -18,6 +18,13 @@ Route::post('Jaunumi/add', [JaunumiController::class, 'store']);
 Route::post('Jaunumi/update/{id}', [JaunumiController::class, 'update']);
 Route::delete('Jaunumi/remove/{Jaunumi}', [JaunumiController::class, 'remove']);
 
+use App\Http\Controllers\PieteikumiController;
+Route::apiResource('pieteikumi', PieteikumiController::class);
+Route::post('pieteikumi/add', [PieteikumiController::class, 'store']);
+Route::post('pieteikumi/update/{id}', [PieteikumiController::class, 'update']);
+Route::delete('pieteikumi/remove/{pieteikumi}', [PieteikumiController::class, 'remove']);
+
+
 
 
 
