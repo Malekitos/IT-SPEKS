@@ -7,31 +7,16 @@ use App\Models\Jaunumi;
 
 class JaunumiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function show()
     {
         return Jaunumi::all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function createJaunums()
-    {
-        $jaunums = Jaunumi::create($request->all());
-        return response()->json($jaunums, 201);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function storeJaunums(Request $request)
+    public function store(Request $request)
     {
 
         $request->validate([
-            'nosaukums' => 'required',
             'attels_ievade' => 'required|mimes:jpg,png,jpeg|max:5048',
         ]);
         
@@ -39,50 +24,26 @@ class JaunumiController extends Controller
         $request->attels_ievade->move(public_path('images'), $newImageName);
 
 
-        $jaunums = new Jaunumi;
+        $Jaunumi = new Jaunumi;
 
-        $jaunums-> nosaukums = $request->nosaukums_ievade;
-        $jaunums-> attels = $newImageName;
-        
+        $Jaunumi-> nosaukums = $request->nosaukums_ievade;
+        $Jaunumi-> attels = $newImageName;
 
-        $jaunums->save();
-
+        $Jaunumi->save();
         return response()->json(['message' => 'Data saved successfully'], 200);
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Jaunumi $jaunums)
+    public function update(Request $request, $id)
     {
-        //
+      Jaunumi::where('id',$id)-> update([
+            'nosaukums' => $request->nosaukums_ievade,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Jaunumi $jaunums)
+    public function remove(Jaunumi $Jaunumi)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Jaunumi $jaunums)
-    {
-        $jaunums = Jaunumi::findOrFail($id);
-        $jaunums->update($request->all());
-        return response()->json($jaunums, 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Jaunumi $jaunums)
-    {
-        Jaunumi::destroy($id);
-        return response()->json(null, 204);
+        $Jaunumi->delete();
+        return response()->json('Vakance deleted successfully!');
     }
 }
