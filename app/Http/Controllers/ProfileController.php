@@ -13,6 +13,13 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+
+    public function show(Request $request)
+    {
+        return User::all();
+    }
+
+
     /**
      * Display the user's profile form.
      */

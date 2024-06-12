@@ -3,18 +3,16 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import { ref, onMounted } from 'vue'; // Импортируем onMounted
+import Modal from '../Components/Modal.vue';
+
 
 const notifyadd = () => {
-      toast("Wow so easy !", {
-        autoClose: 1000,
-      }); // ToastOptions
-      return { notifyadd };
-    }
-    
- 
-
-import { ref } from 'vue';
-import Modal from '../Components/Modal.vue';
+  toast("Wow so easy !", {
+    autoClose: 1000,
+  }); // ToastOptions
+  return { notifyadd };
+};
 
 const isModalVisiblePievienot = ref(false);
 const isModalVisibleRediget = ref(false);
@@ -25,7 +23,7 @@ const openModalPievienot = () => {
 };
 
 const closeModalPievienot = () => {
-    isModalVisiblePievienot.value = false;
+  isModalVisiblePievienot.value = false;
 };
 
 const openModalRediget = () => {
@@ -33,7 +31,7 @@ const openModalRediget = () => {
 };
 
 const closeModalRediget = () => {
-    isModalVisibleRediget.value = false;
+  isModalVisibleRediget.value = false;
 };
 
 const openModalDzest = () => {
@@ -41,8 +39,22 @@ const openModalDzest = () => {
 };
 
 const closeModalDzest = () => {
-    isModalVisibleDzest.value = false;
+  isModalVisibleDzest.value = false;
 };
+
+const users = ref([]);
+
+const fetchUsers = async () => {
+  try {
+    const response = await axios.get('users/show'); // Adjust the endpoint as needed
+    users.value = response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
+  }
+};
+
+// Вызываем fetchUsers при монтировании компонента
+onMounted(fetchUsers);
 
 </script>
 
@@ -85,56 +97,21 @@ const closeModalDzest = () => {
                                     
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Dzonatans
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Svilis-Sudints
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Dzonatan@gmail.com
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Moderators
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">rediģēt</a>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
-                                    </td>
-                                    
-                                </tr>
-
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Egors
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        Kalejs
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Kalejs@gmail.com
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Administrators
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">rediģēt</a>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
-                                    </td>
-                                    
-                                </tr>
-                                
-                            </tbody>
+                <tbody>
+                  <tr v-for="user in users" :key="user.email" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="px-6 py-4">{{ user.name }}</td>
+                    <td class="px-6 py-4">{{ user.email }}</td>
+                    <td class="px-6 py-4">{{ user.amats }}</td>
+                    <td class="px-6 py-4 text-right">
+                      <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">rediģēt</a>
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                      <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
+                    </td>
+                  </tr>
+                </tbody>
                         </table>
-                        
-                    </div>
-                
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +143,7 @@ const closeModalDzest = () => {
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Talrunis</label>
                                     <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="+37125524933" required>
                                 </div>
-                                <div>
+                                <div>                                                                                                                           
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-pasts</label>
                                     <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="it-speks@gmail.com" required>
                                 </div>
