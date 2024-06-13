@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,10 +24,11 @@ Route::post('pieteikumi/add', [PieteikumiController::class, 'store']);
 Route::post('pieteikumi/update/{id}', [PieteikumiController::class, 'update']);
 Route::delete('pieteikumi/remove/{pieteikumi}', [PieteikumiController::class, 'remove']);
 
+use App\Http\Controllers\ProfileController;
 Route::apiResource('users', ProfileController::class);
 Route::get('users', [ProfileController::class, 'show']);
-
-
+Route::delete('users/remove/{user}', [ProfileController::class, 'remove']);
+Route::post('users/updateUser/{id}', [ProfileController::class, 'updateUser']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

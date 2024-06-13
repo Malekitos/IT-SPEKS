@@ -5,6 +5,9 @@ import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
 import { ref, onMounted } from 'vue'; // Импортируем onMounted
 import Modal from '../Components/Modal.vue';
+import izdzest_lietotaji from './izdzest_lietotaji.vue';
+import rediget_lietotajus from './rediget_lietotajus.vue';
+import axios from 'axios';
 
 
 const notifyadd = () => {
@@ -87,26 +90,31 @@ onMounted(fetchUsers);
                                         Amats
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        <button @click="openModalPievienot" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                                        Telefona numurs
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                    </th>
+                                    <th>    <button @click="openModalPievienot" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
                                         <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                                             Pievienot
                                         </span>
-                                        </button>
-                                    </th>
-                                    <th></th>
+                                        </button></th>
                                     
                                 </tr>
                             </thead>
                 <tbody>
                   <tr v-for="user in users" :key="user.email" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="px-6 py-4">{{ user.name }}</td>
+                    <td class="px-6 py-4">{{ user.surname }}</td>
                     <td class="px-6 py-4">{{ user.email }}</td>
                     <td class="px-6 py-4">{{ user.amats }}</td>
+                    <td class="px-6 py-4">{{ user.number }}</td>
                     <td class="px-6 py-4 text-right">
-                      <a @click="openModalRediget" href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">rediģēt</a>
+                      <rediget_lietotajus :user="user" @click="fetchUsers()"></rediget_lietotajus>
                     </td>
                     <td class="px-6 py-4 text-right">
-                      <a @click="openModalDzest" href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Dzēst</a>
+                      
+                      <izdzest_lietotaji :user="user" @click="fetchUsers()"></izdzest_lietotaji>
                     </td>
                   </tr>
                 </tbody>

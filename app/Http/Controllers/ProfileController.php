@@ -20,6 +20,24 @@ class ProfileController extends Controller
         return User::all();
     }
 
+    public function remove(User $user)
+    {
+        $user->delete();
+        return response()->json('Lietotajs deleted successfully!');
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        User::where('id',$id)-> update([
+            'name' => $request->name_ievade,
+            'surname' => $request->surname_ievade,
+            'email' => $request->email_ievade,
+            'number' => $request->number_ievade,
+            'amats' => $request->amats_ievade
+        ]);
+    }
+
+
 
     /**
      * Display the user's profile form.

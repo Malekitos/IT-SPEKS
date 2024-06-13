@@ -8,7 +8,10 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
     name: '',
+    surname: '',
     email: '',
+    number: '',
+    amats: '',
     password: '',
     password_confirmation: '',
 });
@@ -41,6 +44,23 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
+            <div>
+                <InputLabel for="surname" value="Surname" />
+
+                <TextInput
+                    id="surname"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.surname"
+                    required
+                    autofocus
+                    autocomplete="surname"
+                />
+
+                <InputError class="mt-2" :message="form.errors.name" />
+            </div>
+
+
             <div class="mt-4">
                 <InputLabel for="email" value="Email" />
 
@@ -54,6 +74,43 @@ const submit = () => {
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+
+            <div>
+                <InputLabel for="number" value="Number" />
+
+                <TextInput
+                    id="number"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.number"
+                    required
+                    autofocus
+                    autocomplete="number"
+                />
+
+                <InputError class="mt-2" :message="form.errors.name" />
+            </div>
+
+
+            <div>
+                <InputLabel for="amats" value="Loma" />
+
+                <select
+                    id="amats"
+                    class="mt-1 block w-full"
+                    v-model="form.amats"
+                    required
+                    autofocus
+                    autocomplete="amats"
+                >
+                    <option value="" disabled>Loma</option>
+                    <option value="Moderators">Moderators</option>
+                    <option value="Admins">Admins</option>
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
             <div class="mt-4">
@@ -70,6 +127,8 @@ const submit = () => {
 
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
+
+         
 
             <div class="mt-4">
                 <InputLabel for="password_confirmation" value="Confirm Password" />
