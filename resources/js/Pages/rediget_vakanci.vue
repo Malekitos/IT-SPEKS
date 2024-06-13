@@ -39,19 +39,19 @@
                                 <form @submit.prevent="createvakance" action="#" class="space-y-7">
                                 <div>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Nosaukums</label>
-                                    <input v-model="nosaukums_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
+                                    <input maxlength='20' v-model="nosaukums_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
                                 </div>
                                 <div>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">īss apraksts</label>
-                                    <input v-model="iss_apraksts_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="īss apraksts" required>
+                                    <input maxlength='30' v-model="iss_apraksts_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="īss apraksts" required>
                                 </div>
                                 <div>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Alga</label>
-                                    <input v-model="alga_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Alga" required>
+                                    <input v-model="alga_ievade" type="number" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Alga" required>
                                 </div>
                                 <div>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Atrašanās vieta  </label>
-                                    <input v-model="atrasanas_vieta_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
+                                    <input maxlength='20' v-model="atrasanas_vieta_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Atrašanās vieta" required>
                                 </div>
                                 
                                 <div class="sm:col-span-2">
