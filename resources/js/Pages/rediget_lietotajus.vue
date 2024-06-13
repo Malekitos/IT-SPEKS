@@ -48,7 +48,7 @@
                                     <input v-model="email_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
                                     <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Telefona numurs</label>
                                     <input v-model="number_ievade" type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vakances nosaukums" required>
-                                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Amats</label>
+                                    <label for="text" class="block mb-2 text-sm font-medium text-gray-900">Loma</label>
                                     <select v-model="amats_ievade" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
                                         <option value="" disabled selected>Vakances nosaukums</option>
                                         <option value="Admin">Admin</option>

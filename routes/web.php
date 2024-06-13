@@ -30,6 +30,7 @@ Route::get('users', [ProfileController::class, 'show']);
 Route::delete('users/remove/{user}', [ProfileController::class, 'remove']);
 Route::post('users/updateUser/{id}', [ProfileController::class, 'updateUser']);
 
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),

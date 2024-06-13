@@ -87,7 +87,7 @@ onMounted(fetchUsers);
                                         e-pasts
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Amats
+                                        Loma
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Telefona numurs
@@ -140,33 +140,33 @@ onMounted(fetchUsers);
                                 <h2 class="mb-4 mt-4 text-xl font-bold text-gray-900 dark:text-white">Izveidot jaunu lietotāju</h2>
                                 <form action="#" class="space-y-7">
                                 <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Vārds</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Uzvārds</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Uzvārds" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Talrunis</label>
-                                    <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="+37125524933" required>
-                                </div>
-                                <div>                                                                                                                           
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-pasts</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="it-speks@gmail.com" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Parole</label>
-                                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="*strong password*" required>
-                                </div>
-                                <div>
-                                <label for="role" class="block mb-2 text-sm font-medium text-gray-900">Loma</label>
-                                <select id="role" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
-                                    <option value="" disabled selected>Izvēlēties lomu</option>
-                                    <option value="admin">Administrators</option>
-                                    <option value="moderator">Moderators</option>
-                                </select>
-                                </div>
+    <label for="editVards" class="block mb-2 text-sm font-medium text-gray-900">Vārds</label>
+    <input type="text" id="editVards" pattern="[A-Za-zĀ-ž]+" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Vārds" required>
+</div>
+<div>
+    <label for="editUzvards" class="block mb-2 text-sm font-medium text-gray-900">Uzvārds</label>
+    <input type="text" id="editUzvards" pattern="[A-Za-zĀ-ž]+" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="Uzvārds" required>
+</div>
+<div>
+    <label for="editTalrunis" class="block mb-2 text-sm font-medium text-gray-900">Talrunis</label>
+    <input type="tel" id="editTalrunis" pattern="[0-9]{1,8}" maxlength="8" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="+37125524933" required>
+</div>
+<div>
+    <label for="editEpasts" class="block mb-2 text-sm font-medium text-gray-900">E-pasts</label>
+    <input type="email" id="editEpasts" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="it-speks@gmail.com" required>
+</div>
+<div>
+    <label for="editParole" class="block mb-2 text-sm font-medium text-gray-900">Parole</label>
+    <input type="password" id="editParole" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" placeholder="*strong password*" required>
+</div>
+<div>
+    <label for="editRole" class="block mb-2 text-sm font-medium text-gray-900">Loma</label>
+    <select id="editRole" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-main focus:border-main block w-full p-2.5" required>
+        <option value="" disabled selected>Izvēlēties lomu</option>
+        <option value="admin">Administrators</option>
+        <option value="moderator">Moderators</option>
+    </select>
+</div>
                                                             
 
                                 <!-- <button @click="notify" class="btn bg-main border-0 text-white hover:bg-accent">Pieteikties</button> -->

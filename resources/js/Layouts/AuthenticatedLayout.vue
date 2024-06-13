@@ -6,7 +6,6 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
-
 import "vue3-toastify/dist/index.css";
 
 const notify = () => {
@@ -55,9 +54,11 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
                                     Pieteikumu pārvaldība
                                 </NavLink>
-                                <NavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
-                                    Konta pārvaldība
-                                </NavLink>
+                                <template v-if="$page.props.auth.user.amats === 'Admin'">
+                                    <NavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
+                                        Konta pārvaldība
+                                    </NavLink>
+                                </template>
                             </div>
                         </div>
 
@@ -138,16 +139,17 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Sakums lapa
-                                </ResponsiveNavLink>
-                                <ResponsiveNavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
-                                    Pieteikumu pārvaldība
-                                </ResponsiveNavLink>
-                                <ResponsiveNavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
-                                    Konta pārvaldība
-                                </ResponsiveNavLink>
+                            Sakums lapa
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('vakanceskontrole')" :active="route().current('vakanceskontrole')">
+                            Pieteikumu pārvaldība
+                        </ResponsiveNavLink>
+                        <template v-if="$page.props.auth.user.amats === 'Admin'">
+                            <ResponsiveNavLink :href="route('kontakontrole')" :active="route().current('kontakontrole')">
+                                Konta pārvaldība
+                            </ResponsiveNavLink>
+                        </template>
                     </div>
 
                     <!-- Responsive Settings Options -->
