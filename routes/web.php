@@ -24,7 +24,8 @@ Route::post('pieteikumi/add', [PieteikumiController::class, 'store']);
 Route::post('pieteikumi/update/{id}', [PieteikumiController::class, 'update']);
 Route::delete('pieteikumi/remove/{pieteikumi}', [PieteikumiController::class, 'remove']);
 
-
+Route::apiResource('users', ProfileController::class);
+Route::get('users', [ProfileController::class, 'show']);
 
 
 
